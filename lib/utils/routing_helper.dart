@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:my_resume/screens/contact_screen/contact_screen.dart';
 import 'package:my_resume/screens/home_screen/home_screen_responsive.dart';
 import 'package:my_resume/screens/projects_screen/projects_screen.dart';
-import 'package:my_resume/screens/resume_screen/resume_screen.dart';
+import 'package:my_resume/screens/resume_screen/resume_screen_responsive.dart';
 import 'package:my_resume/widgets/app_bar/app_bar_full_screen.dart';
 import 'package:page_transition/page_transition.dart';
 
@@ -16,7 +16,7 @@ class RoutingPageType {
 
   RoutingPageType.projectsScreen() : screen = ProjectsScreen();
 
-  RoutingPageType.resumeScreen() : screen = ResumeScreen();
+  RoutingPageType.resumeScreenResponsive() : screen = ResumeScreenResponsive();
 
   RoutingPageType.appBarFullScreen() : screen = AppBarFullScreen();
 }

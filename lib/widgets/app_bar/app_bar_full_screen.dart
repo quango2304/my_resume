@@ -8,6 +8,7 @@ import 'package:my_resume/widgets/user_avatar.dart';
 
 class AppBarFullScreen extends StatefulWidget {
   static int currentIndex = 0;
+
   @override
   _AppBarFullScreenState createState() => _AppBarFullScreenState();
 }
@@ -15,7 +16,12 @@ class AppBarFullScreen extends StatefulWidget {
 class _AppBarFullScreenState extends State<AppBarFullScreen> {
   @override
   Widget build(BuildContext context) {
-    final items = ['ABOUT ME', 'RESUME', 'PROJECTS', 'CONTACT'];
+    final items = {
+      'HOME': RoutingPageType.homeScreenResponsive(),
+      'RESUME': RoutingPageType.resumeScreenResponsive(),
+      'PROJECTS': RoutingPageType.projectsScreen(),
+      'CONTACT': RoutingPageType.contactScreen()
+    };
     return Scaffold(
       backgroundColor: Colors.white,
       body: SafeArea(
@@ -54,8 +60,9 @@ class _AppBarFullScreenState extends State<AppBarFullScreen> {
                       onTap: () {
                         AppBarFullScreen.currentIndex = i;
                         setState(() {});
+                        RoutingHelper().push(items.values.toList()[i]);
                       },
-                      child: items[i].s20w900(
+                      child: items.keys.toList()[i].s20w900(
                           style: TextStyle(
                               color: i == AppBarFullScreen.currentIndex
                                   ? AppColors.c0050FF
