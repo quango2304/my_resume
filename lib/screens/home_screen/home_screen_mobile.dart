@@ -105,6 +105,8 @@ class HomeScreenMobile extends StatelessWidget {
     return Scaffold(
       backgroundColor: Colors.white,
       body: ListView(
+        physics: ClampingScrollPhysics(),
+          padding: EdgeInsets.zero,
         children: [
           AppBarResponsive(),
           buildResumeProjectsSection(),

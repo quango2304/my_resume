@@ -8,11 +8,16 @@ import 'package:responsive_builder/responsive_builder.dart';
 class AppBarResponsive extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return ScreenTypeLayout.builder(
-      mobile: (_) => AppBarMobile(),
-      tablet: (_) => AppBarDesktop(),
-      desktop: (_) => AppBarDesktop(),
-      watch: (_) => AppBarMobile(),
+    return Container(
+      color: Colors.white,
+      child: SafeArea(
+        child: ScreenTypeLayout.builder(
+          mobile: (_) => AppBarMobile(),
+          tablet: (_) => AppBarDesktop(),
+          desktop: (_) => AppBarDesktop(),
+          watch: (_) => AppBarMobile(),
+        ),
+      ),
     );
   }
 }

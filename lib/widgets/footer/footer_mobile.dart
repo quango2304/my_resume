@@ -43,7 +43,8 @@ class FooterMobile extends StatelessWidget {
             'Follow'.s15w700(),
             12.ver,
             SocialsWidget()
-          ],)
+          ],),
+          30.ver,
         ],
       ),
     );
