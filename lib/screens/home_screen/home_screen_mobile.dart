@@ -11,6 +11,7 @@ import 'package:my_resume/widgets/user_avatar.dart';
 class HomeScreenMobile extends StatelessWidget {
   Widget buildResumeProjectsSection() {
     return Container(
+      color: AppColors.cE6DBCF,
       child: Stack(
         alignment: Alignment.topCenter,
         children: [
@@ -23,7 +24,7 @@ class HomeScreenMobile extends StatelessWidget {
             ],
           ),
           Padding(
-            padding: EdgeInsets.symmetric(horizontal: 20),
+            padding: EdgeInsets.symmetric(horizontal: 20, vertical: 20),
             child: ShadowButton.normal(
               child: Container(
                 color: AppColors.cF5ECE6,
@@ -31,7 +32,7 @@ class HomeScreenMobile extends StatelessWidget {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
-                    40.ver,
+                    20.ver,
                     UserAvatar(
                       size: 200,
                     ),
@@ -80,12 +81,13 @@ class HomeScreenMobile extends StatelessWidget {
   }
 
   Widget buildIntroductionText() {
-    return Padding(
+    return Container(
       padding: EdgeInsets.symmetric(horizontal: 28),
+      color: AppColors.cE6DBCF,
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          20.ver,
+          10.ver,
           'Hello'.s39w800(),
           20.ver,
           "Here's who I am & what I do".s20w600(),
@@ -100,17 +102,15 @@ class HomeScreenMobile extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
-      child: Scaffold(
-        backgroundColor: AppColors.cE6DBCF,
-        body: ListView(
-          children: [
-            AppBarResponsive(),
-            buildResumeProjectsSection(),
-            buildIntroductionText(),
-            FooterResponsive()
-          ],
-        ),
+    return Scaffold(
+      backgroundColor: Colors.white,
+      body: ListView(
+        children: [
+          AppBarResponsive(),
+          buildResumeProjectsSection(),
+          buildIntroductionText(),
+          FooterResponsive()
+        ],
       ),
     );
   }
