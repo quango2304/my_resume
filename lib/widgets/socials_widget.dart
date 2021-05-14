@@ -7,29 +7,30 @@ class SocialsWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Row(
       mainAxisSize: MainAxisSize.min,
+      crossAxisAlignment: CrossAxisAlignment.center,
       children: [
-        IconButton(
-          icon: FaIcon(
+        InkWell(
+          child: FaIcon(
             FontAwesomeIcons.facebookF,
             size: 20,
           ),
-          onPressed: () {},
+          onTap: () {},
         ),
-        4.hoz,
-        IconButton(
-          icon: FaIcon(
+        24.hoz,
+        InkWell(
+          child: FaIcon(
             FontAwesomeIcons.linkedinIn,
             size: 20,
           ),
-          onPressed: () {},
+          onTap: () {},
         ),
-        4.hoz,
-        IconButton(
-          icon: FaIcon(
+        24.hoz,
+        InkWell(
+          child: FaIcon(
             FontAwesomeIcons.instagram,
             size: 20,
           ),
-          onPressed: () {},
+          onTap: () {},
         ),
       ],
     );
