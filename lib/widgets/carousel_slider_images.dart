@@ -31,9 +31,13 @@ class _CarouselBannerState extends State<CarouselBanner> {
               onTap: () {
                 widget.onPressItem?.call(itemIndex);
               },
-              child: Image.asset(
-                widget.images[itemIndex],
-                fit: BoxFit.contain,
+              child: Container(
+                color: Colors.white,
+                width: double.maxFinite,
+                child: Image.asset(
+                  widget.images[itemIndex],
+                  fit: BoxFit.contain,
+                ),
               ),
             );
           },

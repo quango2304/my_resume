@@ -136,7 +136,7 @@ class ProjectsScreenMobile extends StatelessWidget {
               child: project.description.s16w400(),
             ),
             20.ver,
-            buildProjectItemImages(project.images)
+            buildProjectItemImages(project.images),
           ],
         ),
       )),
