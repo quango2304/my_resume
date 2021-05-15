@@ -1,18 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:my_resume/constants/app_colors.dart';
-import 'package:my_resume/constants/app_images.dart';
 import 'package:my_resume/extensions/extensions.dart';
 import 'package:my_resume/utils/load_cv_json.dart';
-import 'package:my_resume/utils/routing_helper.dart';
 import 'package:my_resume/widgets/app_bar/app_bar_responsive.dart';
 import 'package:my_resume/widgets/app_button.dart';
-import 'package:my_resume/widgets/carousel_slider_images.dart';
 import 'package:my_resume/widgets/footer/footer_responsive.dart';
 import 'package:my_resume/widgets/shadow_button.dart';
-import 'package:page_transition/page_transition.dart';
-import 'package:get/get.dart';
+import 'package:my_resume/widgets/square_dot.dart';
 
 class ContactScreenMobile extends StatefulWidget {
   @override
@@ -24,6 +19,37 @@ class _ContactScreenMobileState extends State<ContactScreenMobile> {
   String message = '';
   String name = '';
 
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      backgroundColor: AppColors.cE6DBCF,
+      body: ListView(
+        padding: EdgeInsets.all(0),
+        physics: ClampingScrollPhysics(),
+        children: [
+          AppBarResponsive(),
+          ...buildHeader(),
+          40.ver,
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 20),
+            child: ShadowButton.normal(
+                child: Container(
+                  color: Colors.white,
+                  width: double.maxFinite,
+                  constraints: BoxConstraints(
+                      maxWidth: 1000
+                  ),
+                  padding: EdgeInsets.only(top: 40, left: 20, right: 20, bottom: 40),
+                  child: buildForm(),
+                )),
+          ),
+          200.ver,
+          FooterResponsive()
+        ],
+      ),
+    );
+  }
+
   List<Widget> buildHeader() {
     return [
       Padding(
@@ -34,7 +60,7 @@ class _ContactScreenMobileState extends State<ContactScreenMobile> {
             Row(
               mainAxisSize: MainAxisSize.min,
               children: [
-                squareDot(),
+                SquareDot(),
                 8.hoz,
                 "Let's talk".s20w800(),
               ],
@@ -43,14 +69,6 @@ class _ContactScreenMobileState extends State<ContactScreenMobile> {
         ),
       ),
     ];
-  }
-
-  Widget squareDot() {
-    return Container(
-      width: 20,
-      height: 20,
-      color: AppColors.c0050FF,
-    );
   }
 
   Widget buildForm() {
@@ -176,34 +194,4 @@ class _ContactScreenMobileState extends State<ContactScreenMobile> {
   TextStyle get _inputStyle =>
       GoogleFonts.poppins(color: AppColors.c7E7E7E, fontSize: 16);
 
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: AppColors.cE6DBCF,
-      body: ListView(
-        padding: EdgeInsets.all(0),
-        physics: ClampingScrollPhysics(),
-        children: [
-          AppBarResponsive(),
-          ...buildHeader(),
-          40.ver,
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 20),
-            child: ShadowButton.normal(
-                child: Container(
-                  color: Colors.white,
-                  width: double.maxFinite,
-                  constraints: BoxConstraints(
-                      maxWidth: 1000
-                  ),
-                  padding: EdgeInsets.only(top: 40, left: 20, right: 20, bottom: 40),
-                  child: buildForm(),
-                )),
-          ),
-          200.ver,
-          FooterResponsive()
-        ],
-      ),
-    );
-  }
 }

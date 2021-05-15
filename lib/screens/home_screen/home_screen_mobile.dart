@@ -12,6 +12,23 @@ import 'package:my_resume/widgets/socials_widget.dart';
 import 'package:my_resume/widgets/user_avatar.dart';
 
 class HomeScreenMobile extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      backgroundColor: AppColors.cE6DBCF,
+      body: ListView(
+        physics: ClampingScrollPhysics(),
+          padding: EdgeInsets.zero,
+        children: [
+          AppBarResponsive(),
+          buildResumeProjectsSection(),
+          buildIntroductionText(),
+          FooterResponsive()
+        ],
+      ),
+    );
+  }
+
   Widget buildResumeProjectsSection() {
     return Container(
       child: Stack(
@@ -99,25 +116,8 @@ class HomeScreenMobile extends StatelessWidget {
           20.ver,
           "Here's who I am & what I do".s20w600(),
           20.ver,
-              myResume.introduction.s16w400(),
+          myResume.introduction.s16w400(),
           40.ver,
-        ],
-      ),
-    );
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: AppColors.cE6DBCF,
-      body: ListView(
-        physics: ClampingScrollPhysics(),
-          padding: EdgeInsets.zero,
-        children: [
-          AppBarResponsive(),
-          buildResumeProjectsSection(),
-          buildIntroductionText(),
-          FooterResponsive()
         ],
       ),
     );
