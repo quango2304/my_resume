@@ -5,6 +5,7 @@ class AppColors {
   static const cE6DBCF = Color(0xffE6DBCF);
   static const cF5ECE6 = Color(0xffF5ECE6);
   static const cEDC945 = Color(0xffEDC945);
+  static const cE84C4F = Color(0xffcE84C4F);
   static const ce5c702 = Color(0xffe5c702); //gold member
   static const c688389 = Color(0xff688389); //silver member
   static const cCC7E48 = Color(0xffCC7E48); //bronze member

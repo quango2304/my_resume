@@ -11,7 +11,6 @@ import 'package:my_resume/widgets/user_avatar.dart';
 class HomeScreenMobile extends StatelessWidget {
   Widget buildResumeProjectsSection() {
     return Container(
-      color: AppColors.cE6DBCF,
       child: Stack(
         alignment: Alignment.topCenter,
         children: [
@@ -103,7 +102,7 @@ class HomeScreenMobile extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,
+      backgroundColor: AppColors.cE6DBCF,
       body: ListView(
         physics: ClampingScrollPhysics(),
           padding: EdgeInsets.zero,
