@@ -65,10 +65,10 @@ class ProjectsScreenMobile extends StatelessWidget {
 
   Widget buildProjects() {
     return SliverList(
-              delegate: SliverChildBuilderDelegate((_, index) {
-            final project = myResume.projects.projects[index];
-            return buildProjectItem(project);
-          }, childCount: myResume.projects.projects.length));
+        delegate: SliverChildBuilderDelegate((_, index) {
+          final project = myResume.projects.projects[index];
+          return buildProjectItem(project);
+        }, childCount: myResume.projects.projects.length));
   }
 
   Widget buildProjectItem(Project project) {
@@ -76,66 +76,69 @@ class ProjectsScreenMobile extends StatelessWidget {
       padding: const EdgeInsets.only(bottom: 40),
       child: ShadowButton.normal(
           child: Container(
-        color: Colors.white,
-        width: double.maxFinite,
-        padding: EdgeInsets.only(top: 40),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Row(
+            color: Colors.white,
+            width: double.maxFinite,
+            padding: EdgeInsets.only(top: 40),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Container(
-                  height: 60,
-                  width: 10,
-                  color: AppColors.c0050FF,
-                ),
-                10.hoz,
-                Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
+                Row(
                   children: [
-                    project.name.s15w800(color: AppColors.c0050FF),
-                    8.ver,
-                    project.role.s14w300(),
-                    4.ver,
-                    Row(
+                    Container(
+                      height: 60,
+                      width: 10,
+                      color: AppColors.c0050FF,
+                    ),
+                    10.hoz,
+                    Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        'Project links:  '.s12w400(
-                            style: TextStyle(color: AppColors.c9C9C9F)),
-                        Wrap(
-                          spacing: 4,
+                        project.name.s15w800(color: AppColors.c0050FF),
+                        8.ver,
+                        if(project.role.isNotEmpty)...[project.role.s14w300(),
+                          4.ver,
+                        ],
+                        if(project.links.isNotEmpty) Row(
                           children: [
-                            ...project.links
-                                .map(
-                                  (link) => GestureDetector(
-                                    child: FaIcon(
-                                      FontAwesomeIcons.link,
-                                      size: 10,
-                                      color: AppColors.c688389,
-                                    ),
-                                    onTap: () {
-                                      launch(link);
-                                    },
-                                  ),
+                            'Project links:  '.s12w400(
+                                style: TextStyle(color: AppColors.c9C9C9F)),
+                            Wrap(
+                              spacing: 4,
+                              children: [
+                                ...project.links
+                                    .map(
+                                      (link) =>
+                                      GestureDetector(
+                                        child: FaIcon(
+                                          FontAwesomeIcons.link,
+                                          size: 10,
+                                          color: AppColors.c688389,
+                                        ),
+                                        onTap: () {
+                                          launch(link);
+                                        },
+                                      ),
                                 )
-                                .toList()
+                                    .toList()
+                              ],
+                            )
                           ],
-                        )
+                        ),
                       ],
                     ),
                   ],
                 ),
+                12.ver,
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 20),
+                  child: project.description.s16w400(),
+                ),
+                20.ver,
+                if(project.images.isNotEmpty) buildProjectItemImages(
+                    project.images),
               ],
             ),
-            12.ver,
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 20),
-              child: project.description.s16w400(),
-            ),
-            20.ver,
-            buildProjectItemImages(project.images),
-          ],
-        ),
-      )),
+          )),
     );
   }
 
@@ -145,7 +148,8 @@ class ProjectsScreenMobile extends StatelessWidget {
         child: CarouselBanner(
           images: images,
           onPressItem: (index) {
-            RoutingHelper().push(RoutingPageType.imagesViewDialog(images: images, initialIndex: index),
+            RoutingHelper().push(RoutingPageType.imagesViewDialog(
+                images: images, initialIndex: index),
                 type: PageTransitionType.scale);
           },
         ));
