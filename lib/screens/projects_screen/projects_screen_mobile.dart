@@ -3,6 +3,8 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:my_resume/constants/app_colors.dart';
 import 'package:my_resume/constants/app_images.dart';
 import 'package:my_resume/extensions/extensions.dart';
+import 'package:my_resume/models/my_resume.dart';
+import 'package:my_resume/utils/load_cv_json.dart';
 import 'package:my_resume/utils/routing_helper.dart';
 import 'package:my_resume/widgets/app_bar/app_bar_responsive.dart';
 import 'package:my_resume/widgets/carousel_slider_images.dart';
@@ -28,8 +30,7 @@ class ProjectsScreenMobile extends StatelessWidget {
                 ],
               ),
               40.ver,
-              "I'm a paragraph. Click here to add your own text and edit me. It’s easy. Just click “Edit Text” or double click me to add your own content and make changes to the font. I’m a great place for you to tell a story and let your users know a little more about you."
-                  .s16w400(),
+              myResume.projects.introText.s16w400(),
             ],
           ),
         ),
@@ -61,8 +62,9 @@ class ProjectsScreenMobile extends StatelessWidget {
             padding: EdgeInsets.symmetric(horizontal: 20),
             sliver: SliverList(
                 delegate: SliverChildBuilderDelegate((_, index) {
-              return buildProjectItem();
-            }, childCount: 2)),
+              final project = myResume.projects.projects[index];
+              return buildProjectItem(project);
+            }, childCount: myResume.projects.projects.length)),
           ),
           SliverToBoxAdapter(
             child: 20.ver,
@@ -73,7 +75,7 @@ class ProjectsScreenMobile extends StatelessWidget {
     );
   }
 
-  Widget buildProjectItem() {
+  Widget buildProjectItem(Project project) {
     return Padding(
       padding: const EdgeInsets.only(bottom: 40),
       child: ShadowButton.normal(
@@ -95,27 +97,31 @@ class ProjectsScreenMobile extends StatelessWidget {
                 Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    'Project Name'.s15w800(color: AppColors.c0050FF),
+                    project.name.s15w800(color: AppColors.c0050FF),
                     8.ver,
-                    'Role Title'.s14w300(),
+                    project.role.s14w300(),
                     4.ver,
                     Row(
                       children: [
-                        'Project links: '.s12w400(
+                        'Project links:  '.s12w400(
                             style: TextStyle(color: AppColors.c9C9C9F)),
                         Wrap(
                           spacing: 4,
                           children: [
-                            FaIcon(
-                              FontAwesomeIcons.link,
-                              size: 10,
-                              color: AppColors.c688389,
-                            ),
-                            FaIcon(
-                              FontAwesomeIcons.link,
-                              size: 10,
-                              color: AppColors.c688389,
-                            )
+                            ...project.links
+                                .map(
+                                  (link) => GestureDetector(
+                                    child: FaIcon(
+                                      FontAwesomeIcons.link,
+                                      size: 10,
+                                      color: AppColors.c688389,
+                                    ),
+                                    onTap: () {
+                                      launch(link);
+                                    },
+                                  ),
+                                )
+                                .toList()
                           ],
                         )
                       ],
@@ -127,28 +133,24 @@ class ProjectsScreenMobile extends StatelessWidget {
             12.ver,
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 20),
-              child:
-                  "I'm a paragraph. Click here to add your own text and edit me. It’s easy. Just click “Edit Text” or double click me to add your own content and make changes to the font. \n \nI’m a great place for you to tell a story and let your users know a little more about you."
-                      .s16w400(),
+              child: project.description.s16w400(),
             ),
             20.ver,
-            buildProjectItemImages()
+            buildProjectItemImages(project.images)
           ],
         ),
       )),
     );
   }
 
-  Widget buildProjectItemImages() {
+  Widget buildProjectItemImages(List<String> images) {
     return Container(
         color: Colors.black,
         child: CarouselBanner(
-          images: [
-            '${AppImages.ahlsImagesFolder}/1.png',
-            '${AppImages.coffeeShopImagesFolder}/2.png',
-          ],
+          images: images,
           onPressItem: (index) {
-            RoutingHelper().push(RoutingPageType.imagesViewDialog(), type: PageTransitionType.scale);
+            RoutingHelper().push(RoutingPageType.imagesViewDialog(images: images, initialIndex: index),
+                type: PageTransitionType.scale);
           },
         ));
   }

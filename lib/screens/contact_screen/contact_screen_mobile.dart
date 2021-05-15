@@ -4,6 +4,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:my_resume/constants/app_colors.dart';
 import 'package:my_resume/constants/app_images.dart';
 import 'package:my_resume/extensions/extensions.dart';
+import 'package:my_resume/utils/load_cv_json.dart';
 import 'package:my_resume/utils/routing_helper.dart';
 import 'package:my_resume/widgets/app_bar/app_bar_responsive.dart';
 import 'package:my_resume/widgets/app_button.dart';
@@ -22,7 +23,6 @@ class _ContactScreenMobileState extends State<ContactScreenMobile> {
   var formKey = GlobalKey<FormState>();
   String message = '';
   String name = '';
-  String email = '';
 
   List<Widget> buildHeader() {
     return [
@@ -57,14 +57,15 @@ class _ContactScreenMobileState extends State<ContactScreenMobile> {
     return Form(
       key: formKey,
       child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           buildUsernameField(),
-          12.ver,
-          buildEmailField(),
-          12.ver,
+          40.ver,
+          "Message".s14w500(),
+          4.ver,
           buildMessageField(),
           12.ver,
-          _buildSubmitButton(),
+          Center(child: _buildSubmitButton()),
         ],
       ),
     );
@@ -92,34 +93,12 @@ class _ContactScreenMobileState extends State<ContactScreenMobile> {
     );
   }
 
-  TextFormField buildEmailField() {
-    return TextFormField(
-      style: _inputStyle,
-      initialValue: name,
-      textAlignVertical: TextAlignVertical.center,
-      autovalidateMode: AutovalidateMode.onUserInteraction,
-      keyboardType: TextInputType.emailAddress,
-      validator: (value) {
-        if (!(value ?? '').isEmail) {
-          return 'Please enter your email';
-        }
-      },
-      onChanged: (value) {
-        email = value;
-      },
-      decoration: textFieldDecoration(
-        "Your email...",
-        Icons.mail,
-      ),
-    );
-  }
-
   TextFormField buildMessageField() {
     return TextFormField(
       style: _inputStyle,
       textAlignVertical: TextAlignVertical.center,
       autovalidateMode: AutovalidateMode.onUserInteraction,
-      keyboardType: TextInputType.phone,
+      keyboardType: TextInputType.text,
       validator: (value) {
         if (value.isNullOrEmpty) {
           return 'Enter message';
@@ -143,7 +122,15 @@ class _ContactScreenMobileState extends State<ContactScreenMobile> {
       width: 100,
       child: AppButton.solidButton(text: 'Send', onPress: () {
         if(formKey.currentState?.validate() ?? false) {
-          print("asd");
+          final Uri _emailLaunchUri = Uri(
+              scheme: 'mailto',
+              path: myResume.contacts.mail,
+              queryParameters: {
+                'subject': name,
+                'body': message
+              }
+          );
+          launch(_emailLaunchUri.toString());
         }
       },),
     );
@@ -213,7 +200,7 @@ class _ContactScreenMobileState extends State<ContactScreenMobile> {
                   child: buildForm(),
                 )),
           ),
-          100.ver,
+          200.ver,
           FooterResponsive()
         ],
       ),

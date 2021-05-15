@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:my_resume/constants/app_colors.dart';
 import 'package:my_resume/extensions/extensions.dart';
+import 'package:my_resume/utils/load_cv_json.dart';
+import 'package:my_resume/utils/routing_helper.dart';
+import 'package:my_resume/widgets/app_bar/app_bar_full_screen.dart';
 import 'package:my_resume/widgets/app_bar/app_bar_responsive.dart';
 import 'package:my_resume/widgets/app_button.dart';
 import 'package:my_resume/widgets/footer/footer_responsive.dart';
@@ -36,7 +39,7 @@ class HomeScreenMobile extends StatelessWidget {
                       size: 200,
                     ),
                     16.ver,
-                    "QUAN NGO".s20w800(),
+                    myResume.name.s20w800(),
                     8.ver,
                     Container(
                       width: 70,
@@ -51,12 +54,17 @@ class HomeScreenMobile extends StatelessWidget {
                         children: [
                           AppButton.solidButton(
                             text: "RESUME",
-                            onPress: () {},
+                            onPress: () {
+                              launch(myResume.cvUrl);
+                            },
                           ),
                           20.hoz,
                           AppButton.outlineButton(
                             text: "PROJECTS",
-                            onPress: () {},
+                            onPress: () {
+                              RoutingHelper().push(RoutingPageType.projectsScreenResponsive());
+                              AppBarFullScreen.currentIndex = 2;
+                            },
                           ),
                         ],
                       ),
@@ -91,8 +99,7 @@ class HomeScreenMobile extends StatelessWidget {
           20.ver,
           "Here's who I am & what I do".s20w600(),
           20.ver,
-          " Studied in Information Security major but I passionate about developing mobile beautiful app. \n \n I also eager to learn new thing, self learning is my best skill. \n \n My strong: ownership characteristics, care about clean and maintainable code, has worked with Android native app, Ios native app and developed Flutter plugin wrapper Android and Ios SDKs."
-              .s16w400(),
+              myResume.introduction.s16w400(),
           40.ver,
         ],
       ),

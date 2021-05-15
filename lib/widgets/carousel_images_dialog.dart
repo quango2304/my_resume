@@ -8,11 +8,11 @@ import 'package:my_resume/widgets/dot_indicator/dot_decorator.dart';
 import 'package:my_resume/widgets/dot_indicator/dot_indicator.dart';
 
 class ImagesViewDialog extends StatefulWidget {
-  final double indicatorBottomMargin;
   final int initialIndex;
+  final List<String> images;
 
-  const ImagesViewDialog(
-      {Key? key, this.indicatorBottomMargin = 16, this.initialIndex = 0})
+  ImagesViewDialog(
+      {Key? key, this.initialIndex = 0, required this.images})
       : super(key: key);
 
   @override
@@ -49,11 +49,11 @@ class _ImagesViewDialogState extends State<ImagesViewDialog> {
                     _currentIndex = index;
                   });
                 }),
-            items: [0, 1, 2].mapIndexed((imageModel, index) {
+            items: widget.images.mapIndexed((imageModel, index) {
               return Builder(
                 builder: (BuildContext context) {
                   return Image.asset(
-                    '${AppImages.ahlsImagesFolder}/${index + 1}.png',
+                    widget.images[index],
                     fit: BoxFit.contain,
                   );
                 },
@@ -61,9 +61,9 @@ class _ImagesViewDialogState extends State<ImagesViewDialog> {
             }).toList(),
           ),
           Padding(
-            padding: EdgeInsets.only(bottom: widget.indicatorBottomMargin),
+            padding: EdgeInsets.only(bottom: 16),
             child: DotsIndicator(
-              dotsCount: 3,
+              dotsCount: widget.images.length,
               position: _currentIndex.toDouble(),
               decorator: DotsDecorator(
                 size: const Size.square(8.0),

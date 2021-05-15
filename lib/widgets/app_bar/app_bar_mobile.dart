@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:my_resume/constants/app_colors.dart';
 import 'package:my_resume/extensions/extensions.dart';
+import 'package:my_resume/utils/load_cv_json.dart';
 import 'package:my_resume/utils/routing_helper.dart';
 import 'package:my_resume/widgets/hero_shuttle_builder.dart';
 import 'package:my_resume/widgets/user_avatar.dart';
@@ -23,11 +24,11 @@ class AppBarMobile extends StatelessWidget {
                 children: [
                   UserAvatar(),
                   8.hoz,
-                  "QUAN NGO".s20w800(),
+                  myResume.name.s20w800(),
                 ],
               ),
               4.ver,
-              "MOBILE ENGINEER".s14w400()
+              myResume.title.s14w400()
             ],
           )),
           InkWell(child: FaIcon(Icons.menu, size: 40, color: AppColors.c0050FF,), onTap: () {

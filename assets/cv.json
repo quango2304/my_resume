@@ -1,0 +1,61 @@
+{
+    "name": "QUAN NGO",
+    "title": "MOBILE ENGINEER",
+    "cv_url": "google.com",
+    "introduction": " Studied in Information Security major but I passionate about developing mobile beautiful app. \n \n I also eager to learn new thing, self learning is my best skill. \n \n My strong: ownership characteristics, care about clean and maintainable code, has worked with Android native app, Ios native app and developed Flutter plugin wrapper Android and Ios SDKs.",
+    "contacts": {
+        "facebook": "https://www.facebook.com/wanngoo/",
+        "instagram": "https://instagram.com/quangoo/",
+        "mail": "quango2304@gmail.com",
+        "phone": "+84326381799",
+        "linkedin": "https://www.linkedin.com/in/quangoo/",
+        "github": "https://github.com/quango2304"
+    },
+    "professional_skills": [
+        "skill 1",
+        "skill 2",
+        "skill 3",
+        "skill 4"
+    ],
+    "languages": [
+        "English",
+        "Vietnamese"
+    ],
+    "experiences": [
+        {
+            "period": "2019-present",
+            "job_position": "JOB POSITION",
+            "company_name": "Company Name",
+            "company_location": "JOB POSITION",
+            "description": "I'm a paragraph. Click here to add your own text and edit me. It’s easy. Just click “Edit Text” or double click me to add your own content and make changes to the font. \n \nI’m a great place for you to tell a story and let your users know a little more about you."
+        }
+    ],
+    "educations": [
+        {
+            "period": "2019-present",
+            "degree_level": "JOB POSITION",
+            "university_name": "University Name",
+            "university_location": "UNIVERSITY POSITION",
+            "description": "I'm a paragraph. Click here to add your own text and edit me. It’s easy. Just click “Edit Text” or double click me to add your own content and make changes to the font. \n \nI’m a great place for you to tell a story and let your users know a little more about you."
+        }
+    ],
+    "projects": {
+        "intro_text": "I'm a paragraph. Click here to add your own text and edit me. It’s easy. Just click “Edit Text” or double click me to add your own content and make changes to the font. I’m a great place for you to tell a story and let your users know a little more about you.",
+        "projects": [
+            {
+                "name": "Project name",
+                "role": "role_title",
+                "description": "I'm a paragraph. Click here to add your own text and edit me. It’s easy. Just click “Edit Text” or double click me to add your own content and make changes to the font. I’m a great place for you to tell a story and let your users know a little more about you.",
+                "images": [
+                    "assets/projects/coffeeshop/1.png",
+                    "assets/projects/coffeeshop/2.png",
+                    "assets/projects/coffeeshop/3.png",
+                    "assets/projects/coffeeshop/4.png"
+                ],
+                "links": [
+                    "https://google.com"
+                ]
+            }
+        ]
+    }
+}

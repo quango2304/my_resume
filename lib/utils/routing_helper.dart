@@ -21,7 +21,9 @@ class RoutingPageType {
 
   RoutingPageType.appBarFullScreen() : screen = AppBarFullScreen();
 
-  RoutingPageType.imagesViewDialog() : screen = ImagesViewDialog();
+  RoutingPageType.imagesViewDialog({
+    required int initialIndex,
+   required List<String> images}) : screen = ImagesViewDialog(images: images, initialIndex: initialIndex);
 }
 
 class RoutingHelper {
