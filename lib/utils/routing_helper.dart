@@ -2,9 +2,10 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:my_resume/screens/contact_screen/contact_screen.dart';
 import 'package:my_resume/screens/home_screen/home_screen_responsive.dart';
-import 'package:my_resume/screens/projects_screen/projects_screen.dart';
+import 'package:my_resume/screens/projects_screen/projects_screen_responsive.dart';
 import 'package:my_resume/screens/resume_screen/resume_screen_responsive.dart';
 import 'package:my_resume/widgets/app_bar/app_bar_full_screen.dart';
+import 'package:my_resume/widgets/carousel_images_dialog.dart';
 import 'package:page_transition/page_transition.dart';
 
 class RoutingPageType {
@@ -14,11 +15,13 @@ class RoutingPageType {
 
   RoutingPageType.homeScreenResponsive() : screen = HomeScreenResponsive();
 
-  RoutingPageType.projectsScreen() : screen = ProjectsScreen();
+  RoutingPageType.projectsScreenResponsive() : screen = ProjectsScreenResponsive();
 
   RoutingPageType.resumeScreenResponsive() : screen = ResumeScreenResponsive();
 
   RoutingPageType.appBarFullScreen() : screen = AppBarFullScreen();
+
+  RoutingPageType.imagesViewDialog() : screen = ImagesViewDialog();
 }
 
 class RoutingHelper {
@@ -28,10 +31,12 @@ class RoutingHelper {
     this.context = context;
   }
 
-  void push(RoutingPageType routingPageType) {
+  void push(RoutingPageType routingPageType,
+      {PageTransitionType? type, Alignment? alignment}) {
     Navigator.of(context).push(PageTransition(
-        type: PageTransitionType.fade,
+        type: type ?? PageTransitionType.fade,
         child: routingPageType.screen,
+        alignment: alignment ?? Alignment.center,
         duration: Duration(milliseconds: 200),
         reverseDuration: Duration(milliseconds: 200)));
   }

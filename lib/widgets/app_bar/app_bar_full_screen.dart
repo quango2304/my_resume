@@ -19,7 +19,7 @@ class _AppBarFullScreenState extends State<AppBarFullScreen> {
     final items = {
       'HOME': RoutingPageType.homeScreenResponsive(),
       'RESUME': RoutingPageType.resumeScreenResponsive(),
-      'PROJECTS': RoutingPageType.projectsScreen(),
+      'PROJECTS': RoutingPageType.projectsScreenResponsive(),
       'CONTACT': RoutingPageType.contactScreen()
     };
     return Scaffold(

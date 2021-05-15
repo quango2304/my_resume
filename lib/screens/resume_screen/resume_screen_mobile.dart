@@ -5,8 +5,6 @@ import 'package:my_resume/widgets/app_bar/app_bar_responsive.dart';
 import 'package:my_resume/widgets/app_button.dart';
 import 'package:my_resume/widgets/footer/footer_responsive.dart';
 import 'package:my_resume/widgets/shadow_button.dart';
-import 'package:my_resume/widgets/socials_widget.dart';
-import 'package:my_resume/widgets/user_avatar.dart';
 
 class ResumeScreenMobile extends StatelessWidget {
   List<Widget> buildWorkHistory() {
@@ -20,7 +18,7 @@ class ResumeScreenMobile extends StatelessWidget {
               Row(
                 mainAxisSize: MainAxisSize.min,
                 children: [
-                  UserAvatar(),
+                  squareDot(),
                   8.hoz,
                   "Resume".s20w800(),
                 ],

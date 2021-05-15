@@ -8,8 +8,9 @@ import 'package:my_resume/widgets/dot_indicator/dot_indicator.dart';
 class CarouselBanner extends StatefulWidget {
   final List<String> images;
   final double indicatorBottomMargin;
+  final Function(int index)? onPressItem;
 
-  CarouselBanner({Key? key, required this.images, this.indicatorBottomMargin = 8}) : super(key: key);
+  CarouselBanner({Key? key, required this.images, this.indicatorBottomMargin = 8, this.onPressItem}) : super(key: key);
 
   @override
   _CarouselBannerState createState() => _CarouselBannerState();
@@ -26,9 +27,14 @@ class _CarouselBannerState extends State<CarouselBanner> {
         CarouselSlider.builder(
           itemCount: widget.images.length,
           itemBuilder: (BuildContext context, int itemIndex, _) {
-            return Image.asset(
-              widget.images[itemIndex],
-              fit: BoxFit.cover,
+            return GestureDetector(
+              onTap: () {
+                widget.onPressItem?.call(itemIndex);
+              },
+              child: Image.asset(
+                widget.images[itemIndex],
+                fit: BoxFit.contain,
+              ),
             );
           },
           options: CarouselOptions(
@@ -49,8 +55,8 @@ class _CarouselBannerState extends State<CarouselBanner> {
             decorator: DotsDecorator(
               size: const Size.square(8.0),
               activeSize: const Size(27.0, 8.0),
-              activeColor: AppColors.cFFFFFF,
-              color: AppColors.cCACACA,
+              activeColor: Colors.blue,
+              color: Colors.blue.withOpacity(0.5),
               activeShape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(4.0)),
             ),

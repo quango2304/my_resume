@@ -31,7 +31,7 @@ dependencies:
   responsive_builder:
   google_fonts:
   font_awesome_flutter:
-  carousel_slider:
+  carousel_slider: 4.0.0-nullsafety.0
   url_launcher:
   page_transition:
 
@@ -52,8 +52,14 @@ flutter:
 
   # To add assets to your application, add an assets section, like this:
   assets:
-   - assets/images/avt.png
-
+   - assets/images/
+   - assets/projects/ahls/
+   - assets/projects/coffeeshop/
+   - assets/projects/dooz/
+   - assets/projects/ebike/
+   - assets/projects/sendo/
+   - assets/projects/shopform/
+   - assets/projects/thesis/
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.
 
