@@ -1,7 +1,7 @@
 {
     "name": "QUAN NGO",
     "title": "MOBILE ENGINEER",
-    "cv_url": "google.com",
+    "cv_url": "https://drive.google.com/file/d/15WgUOnUIzYkbj4sj1FgkCAQZpC3D5ZJe/view?usp=sharing",
     "introduction": " Studied in Information Security major but I passionate about developing mobile beautiful app. \n \n I also eager to learn new thing, self learning is my best skill. \n \n My strong: ownership characteristics, care about clean and maintainable code, has worked with Android native app, Ios native app and developed Flutter plugin wrapper Android and Ios SDKs.",
     "contacts": {
         "facebook": "https://www.facebook.com/wanngoo/",
@@ -12,10 +12,17 @@
         "github": "https://github.com/quango2304"
     },
     "professional_skills": [
-        "skill 1",
-        "skill 2",
-        "skill 3",
-        "skill 4"
+        "Flutter",
+        "iOS Development",
+        "Android Development",
+        "JavaScript",
+        "React Native",
+        "ReactJs",
+        "Firebase",
+        "Docker",
+        "OOP",
+        "Design Pattern",
+        "Unit Testing"
     ],
     "languages": [
         "English",
@@ -23,20 +30,41 @@
     ],
     "experiences": [
         {
-            "period": "2019-present",
-            "job_position": "JOB POSITION",
-            "company_name": "Company Name",
-            "company_location": "JOB POSITION",
-            "description": "I'm a paragraph. Click here to add your own text and edit me. It’s easy. Just click “Edit Text” or double click me to add your own content and make changes to the font. \n \nI’m a great place for you to tell a story and let your users know a little more about you."
+            "period": "September 2020 - Present",
+            "job_position": "Mobile Engineer (Flutter)",
+            "company_name": "Shopform.sg",
+            "company_location": "Singapore",
+            "description": "We use Flutter to develop E-Commercial combine with social media app startup, i work remotely part-time at night with Singapore team. \n \nTechs: Flutter, Bloc, TDD, Getx"
+        },
+        {
+            "period": "February 2020 — February 2021",
+            "job_position": "Mobile Engineer (Flutter, Android, Ios)",
+            "company_name": "Sendo.vn",
+            "company_location": "HCM - VietNam",
+            "description": "We develop Sendo's buyer app (E-Commercial platform with 10.000.000+ users on Android and IOS). \n \nThe app is already built in separate Android and IOS platform. But we decide implement new feature/screens in Flutter using Flutter add to app for fast development."
+        },
+        {
+            "period": "May 2019 — December 2019",
+            "job_position": "Mobile Engineer (Flutter, React Native)",
+            "company_name": "AntTech",
+            "company_location": "HCM - VietNam",
+            "description": "We develop 2 app: \n \n1. IOT Flutter mobile app using Bluetooth to control the devices in the house.\nI worked with a team in France, using Flutter framework to develop the app.\n2. Renting bike mobile app that can use Bluetooth to unlock the bike, My role is the main front-end react native developer."
+        },
+        {
+            "period": "May 2018 — September 2018",
+            "job_position": "Web Developer (ReactJs)",
+            "company_name": "UIT (my university)",
+            "company_location": "HCM - VietNam",
+            "description": "We developed a graveyard management website using Reactjs, Nodejs and\nPostgreSQL. My role is the main front-end Reactjs developer."
         }
     ],
     "educations": [
         {
-            "period": "2019-present",
-            "degree_level": "JOB POSITION",
-            "university_name": "University Name",
-            "university_location": "UNIVERSITY POSITION",
-            "description": "I'm a paragraph. Click here to add your own text and edit me. It’s easy. Just click “Edit Text” or double click me to add your own content and make changes to the font. \n \nI’m a great place for you to tell a story and let your users know a little more about you."
+            "period": "August 2016 — August 2020",
+            "degree_level": "Information Security Engineer (Talent Program)",
+            "university_name": "University of Information Technology",
+            "university_location": "HCM - VietNam",
+            "description": "My major is Information Security.\n \nMy thesis: Research And Develop Edge Computing System With Container Technology For Healthcare (Using C++, Flutter, Nodejs, Docker, Kubernetes)."
         }
     ],
     "projects": {
