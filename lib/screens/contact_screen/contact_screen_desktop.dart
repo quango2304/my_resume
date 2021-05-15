@@ -13,12 +13,12 @@ import 'package:my_resume/widgets/shadow_button.dart';
 import 'package:page_transition/page_transition.dart';
 import 'package:get/get.dart';
 
-class ContactScreen extends StatefulWidget {
+class ContactScreenDesktop extends StatefulWidget {
   @override
-  _ContactScreenState createState() => _ContactScreenState();
+  _ContactScreenDesktopState createState() => _ContactScreenDesktopState();
 }
 
-class _ContactScreenState extends State<ContactScreen> {
+class _ContactScreenDesktopState extends State<ContactScreenDesktop> {
   var formKey = GlobalKey<FormState>();
   String message = '';
   String name = '';
@@ -131,9 +131,9 @@ class _ContactScreenState extends State<ContactScreen> {
       },
       maxLines: 4,
       decoration: textFieldDecoration(
-        "",
-        Icons.message,
-        showIcon: false
+          "",
+          Icons.message,
+          showIcon: false
       ),
     );
   }
@@ -142,9 +142,9 @@ class _ContactScreenState extends State<ContactScreen> {
     return SizedBox(
       width: 100,
       child: AppButton.solidButton(text: 'Send', onPress: () {
-          if(formKey.currentState?.validate() ?? false) {
-            print("asd");
-          }
+        if(formKey.currentState?.validate() ?? false) {
+          print("asd");
+        }
       },),
     );
   }
@@ -204,11 +204,14 @@ class _ContactScreenState extends State<ContactScreen> {
             padding: const EdgeInsets.symmetric(horizontal: 20),
             child: ShadowButton.normal(
                 child: Container(
-              color: Colors.white,
-              width: double.maxFinite,
-              padding: EdgeInsets.only(top: 40, left: 20, right: 20, bottom: 40),
-              child: buildForm(),
-            )),
+                  color: Colors.white,
+                  width: double.maxFinite,
+                  constraints: BoxConstraints(
+                      maxWidth: 1000
+                  ),
+                  padding: EdgeInsets.only(top: 40, left: 20, right: 20, bottom: 40),
+                  child: buildForm(),
+                )),
           ),
           100.ver,
           FooterResponsive()

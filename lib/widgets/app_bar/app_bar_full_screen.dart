@@ -20,7 +20,7 @@ class _AppBarFullScreenState extends State<AppBarFullScreen> {
       'HOME': RoutingPageType.homeScreenResponsive(),
       'RESUME': RoutingPageType.resumeScreenResponsive(),
       'PROJECTS': RoutingPageType.projectsScreenResponsive(),
-      'CONTACT': RoutingPageType.contactScreen()
+      'CONTACT': RoutingPageType.contactScreenResponsive()
     };
     return Scaffold(
       backgroundColor: Colors.white,

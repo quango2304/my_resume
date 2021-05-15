@@ -1,6 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:my_resume/screens/contact_screen/contact_screen.dart';
+import 'package:my_resume/screens/contact_screen/contact_screen_responsive.dart';
 import 'package:my_resume/screens/home_screen/home_screen_responsive.dart';
 import 'package:my_resume/screens/projects_screen/projects_screen_responsive.dart';
 import 'package:my_resume/screens/resume_screen/resume_screen_responsive.dart';
@@ -11,7 +11,7 @@ import 'package:page_transition/page_transition.dart';
 class RoutingPageType {
   late Widget screen;
 
-  RoutingPageType.contactScreen() : screen = ContactScreen();
+  RoutingPageType.contactScreenResponsive() : screen = ContactScreenResponsive();
 
   RoutingPageType.homeScreenResponsive() : screen = HomeScreenResponsive();
 
