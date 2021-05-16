@@ -27,7 +27,7 @@ class FooterDesktop extends StatelessWidget {
                 myResume.contacts.phone.s14w400()
               ],
             ),
-          ),
+          ).showCursorOnHover,
           GestureDetector(
             onTap: () {
               final Uri _emailLaunchUri = Uri(
@@ -44,7 +44,7 @@ class FooterDesktop extends StatelessWidget {
                 myResume.contacts.mail.s14w400()
               ],
             ),
-          ),
+          ).showCursorOnHover,
           Column(
             crossAxisAlignment: CrossAxisAlignment.center,
             children: ['Follow'.s15w700(), 12.ver, SocialsWidget()],

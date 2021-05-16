@@ -77,7 +77,7 @@ class HomeScreenDesktop extends StatelessWidget {
                       Container(
                         width: 70,
                         height: 2,
-                        color: AppColors.c0050FF,
+                        color: AppColors.c2386E8,
                       ),
                       24.ver,
                       Padding(

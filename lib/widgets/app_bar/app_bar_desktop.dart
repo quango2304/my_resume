@@ -56,7 +56,7 @@ class _AppBarDesktopState extends State<AppBarDesktop> {
                 child: e.s14w300(
                     style: TextStyle(
                         color: i == AppBarFullScreen.currentIndex
-                            ? AppColors.c0050FF
+                            ? AppColors.c2386E8
                             : Colors.black)),
               ).showCursorOnHover)
                   .toList(),

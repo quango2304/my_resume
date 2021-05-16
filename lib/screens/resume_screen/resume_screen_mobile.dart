@@ -111,7 +111,7 @@ class _ResumeScreenMobileState extends State<ResumeScreenMobile> {
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          experience.period.s15w800(color: AppColors.c0050FF),
+                          experience.period.s15w800(color: AppColors.c2386E8),
                           8.ver,
                           experience.jobPosition.s14w600(),
                           12.ver,
@@ -164,7 +164,7 @@ class _ResumeScreenMobileState extends State<ResumeScreenMobile> {
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          education.period.s15w800(color: AppColors.c0050FF),
+                          education.period.s15w800(color: AppColors.c2386E8),
                           8.ver,
                           education.universityName.s14w600(),
                           12.ver,

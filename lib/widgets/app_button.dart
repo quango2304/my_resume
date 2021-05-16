@@ -36,9 +36,9 @@ class AppButton extends StatefulWidget {
     return AppButton._(
       padding: EdgeInsets.symmetric(vertical: 8, horizontal: 16),
       hoverBackgroundColor: Colors.transparent,
-      hoverBorderColor: AppColors.c0050FF,
-      normalBackgroundColor: AppColors.c0050FF,
-      normalBorderColor: AppColors.c0050FF,
+      hoverBorderColor: AppColors.c2386E8,
+      normalBackgroundColor: AppColors.c2386E8,
+      normalBorderColor: AppColors.c2386E8,
       text: text,
       onPress: onPress,
       normalTextColor: Colors.white,
@@ -51,8 +51,8 @@ class AppButton extends StatefulWidget {
   factory AppButton.outlineButton({required String text, Function? onPress, double minWidth = 100}) {
     return AppButton._(
         padding: EdgeInsets.symmetric(vertical: 8, horizontal: 16),
-        hoverBackgroundColor: AppColors.c0050FF,
-        hoverBorderColor: AppColors.c0050FF,
+        hoverBackgroundColor: AppColors.c2386E8,
+        hoverBorderColor: AppColors.c2386E8,
         normalBackgroundColor: Colors.transparent,
         normalBorderColor: Colors.black,
         text: text,

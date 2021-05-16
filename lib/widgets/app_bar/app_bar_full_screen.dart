@@ -59,7 +59,7 @@ class _AppBarFullScreenState extends State<AppBarFullScreen> {
                       child: AppBarResponsive.menuItems.keys.toList()[i].s20w900(
                           style: TextStyle(
                               color: i == AppBarFullScreen.currentIndex
-                                  ? AppColors.c0050FF
+                                  ? AppColors.c2386E8
                                   : Colors.black)),
                     )),
                     separatorBuilder: (_, __) => 32.ver,

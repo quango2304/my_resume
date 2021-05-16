@@ -10,8 +10,8 @@ class ScrollUpFloatButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return FloatingActionButton(
       child: Icon(Icons.keyboard_arrow_up, color: Colors.white,),
-      backgroundColor: AppColors.cE6DBCF,
-      elevation: 0.1,
+      backgroundColor: AppColors.cCEC0B6,
+      elevation: 0.5,
       onPressed: () {
         scrollController.animateTo(0,
             duration: Duration(milliseconds: 300),

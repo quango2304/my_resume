@@ -30,7 +30,7 @@ class AppBarMobile extends StatelessWidget {
               myResume.title.s14w400()
             ],
           )),
-          InkWell(child: FaIcon(Icons.menu, size: 40, color: AppColors.c0050FF,), onTap: () {
+          InkWell(child: FaIcon(Icons.menu, size: 40, color: AppColors.c2386E8,), onTap: () {
             RoutingHelper().push(RoutingPageType.appBarFullScreen());
           },)
         ],

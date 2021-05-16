@@ -130,13 +130,13 @@ class _ProjectsScreenDesktopState extends State<ProjectsScreenDesktop> {
                         Container(
                           height: 60,
                           width: 10,
-                          color: AppColors.c0050FF,
+                          color: AppColors.c2386E8,
                         ),
                         30.hoz,
                         Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            project.name.s15w800(color: AppColors.c0050FF),
+                            project.name.s15w800(color: AppColors.c2386E8),
                             8.ver,
                             if (project.role.isNotEmpty) ...[
                               project.role.s14w300(),

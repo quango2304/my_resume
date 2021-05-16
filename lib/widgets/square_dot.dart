@@ -7,7 +7,7 @@ class SquareDot extends StatelessWidget {
     return Container(
       width: 20,
       height: 20,
-      color: AppColors.c0050FF,
+      color: AppColors.c2386E8,
     );
   }
 }
