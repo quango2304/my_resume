@@ -12,7 +12,7 @@ class FooterDesktop extends StatelessWidget {
       padding: EdgeInsets.all(50),
       child: Row(
         children: [
-          "#Created by Flutter".s10w400(color: Colors.blueGrey),
+          "#createdbyflutter".s10w400(color: Colors.blueGrey),
           Expanded(
             child: Wrap(
               spacing: 25,

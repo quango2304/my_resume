@@ -65,7 +65,7 @@ class FooterMobile extends StatelessWidget {
                   SocialsWidget()
                 ],),
               ),
-              Expanded(child: "#Created by Flutter".s10w400(color: Colors.blueGrey)),
+              Expanded(child: "#createdbyflutter".s10w400(color: Colors.blueGrey)),
             ],
           ),
           30.ver,
