@@ -54,11 +54,20 @@ class FooterMobile extends StatelessWidget {
             ],
           ),
           30.ver,
-          Column(crossAxisAlignment: CrossAxisAlignment.start,children: [
-            'Follow'.s15w700(),
-            12.ver,
-            SocialsWidget()
-          ],),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              Expanded(
+                child: Column(crossAxisAlignment: CrossAxisAlignment.start,children: [
+                  'Follow'.s15w700(),
+                  12.ver,
+                  SocialsWidget()
+                ],),
+              ),
+              Expanded(child: "#Created by Flutter".s10w400(color: Colors.blueGrey)),
+            ],
+          ),
           30.ver,
         ],
       ),
