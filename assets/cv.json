@@ -71,17 +71,131 @@
         "intro_text": "I'm a paragraph. Click here to add your own text and edit me. It’s easy. Just click “Edit Text” or double click me to add your own content and make changes to the font. I’m a great place for you to tell a story and let your users know a little more about you.",
         "projects": [
             {
-                "name": "Project name",
-                "role": "role_title",
-                "description": "I'm a paragraph. Click here to add your own text and edit me. It’s easy. Just click “Edit Text” or double click me to add your own content and make changes to the font. I’m a great place for you to tell a story and let your users know a little more about you.",
+                "name": "ShopForm",
+                "role": "Mobile Engineer (Flutter)",
+                "description": "We use Flutter to develop E-Commercial combine with social media app, I work remotely part-time at night with Singapore team.\n\nTechs: Flutter, Bloc, TDD.",
+                "images": [
+                    "assets/projects/shopform/1.png",
+                    "assets/projects/shopform/2.png",
+                    "assets/projects/shopform/3.png",
+                    "assets/projects/shopform/4.png",
+                    "assets/projects/shopform/5.png"
+                ],
+                "links": [
+                    {
+                        "link": "https://play.google.com/store/apps/details?id=com.newauction.vueapp",
+                        "type": "android"
+                    },
+                    {
+                        "link": "https://apps.apple.com/app/id1547156453",
+                        "type": "ios"
+                    },
+                    {
+                        "link": "https://www.shopform.sg",
+                        "type": "web"
+                    }
+                ]
+            },
+            {
+                "name": "Sendo",
+                "role": "Mobile Engineer (Flutter, Ios)",
+                "description": "We develop Sendo's buyer app (E-Commercial platform with 10.000.000+ users on Android and IOS).\n\nThe app is already built in separate Android and IOS platform. But we decide implement new feature/screens in Flutter using Flutter add to app for fast development.",
+                "images": [
+                    "assets/projects/sendo/1.png",
+                    "assets/projects/sendo/2.png",
+                    "assets/projects/sendo/3.png",
+                    "assets/projects/sendo/4.png"
+                ],
+                "links": [
+                    {
+                        "link": "https://play.google.com/store/apps/details?id=com.sendo",
+                        "type": "android"
+                    },
+                    {
+                        "link": "https://apps.apple.com/us/app/sendo-chợ-việt-giá-bình-dân/id940313804",
+                        "type": "ios"
+                    },
+                    {
+                        "link": "https://www.sendo.vn/",
+                        "type": "web"
+                    }
+                ]
+            },
+            {
+                "name": "Dooz",
+                "role": "Mobile Engineer (Flutter)",
+                "description": "We develop IOT Flutter mobile app using Bluetooth to control the devices in the house. \n \nI worked remotely with a team in France",
+                "images": [
+                    "assets/projects/dooz/1.png"
+                ],
+                "links": [
+                ]
+            },
+            {
+                "name": "AppEBike",
+                "role": "Mobile Engineer (React Native)",
+                "description": "We develop a renting bike mobile app that can use Bluetooth to unlock the bike.\n \nMy role is the main front-end react native developer.",
+                "images": [
+                    "assets/projects/ebike/1.png"
+                ],
+                "links": [
+                    {
+                        "link": "https://play.google.com/store/apps/details?id=com.appebike",
+                        "type": "android"
+                    },
+                    {
+                        "link": "https://apps.apple.com/app/id1200957914",
+                        "type": "ios"
+                    },
+                    {
+                        "link": "https://appebike.com/fr/en/accueil-en/",
+                        "type": "web"
+                    }
+                ]
+            },
+            {
+                "name": "Martyry management website",
+                "role": "Mobile Engineer (ReactJS)",
+                "description": "This is a volunteer project in my university, we developed a martyrs management website using Reactjs, Nodejs and PostgreSQL. \n \nMy role is the main front-end Reactjs developer.",
+                "images": [
+                    "assets/projects/ahls/1.png",
+                    "assets/projects/ahls/2.png",
+                    "assets/projects/ahls/3.png",
+                    "assets/projects/ahls/4.png"
+                ],
+                "links": [
+                    {
+                        "link": "https://ahls-cu-chi.web.app",
+                        "type": "web"
+                    }
+                ]
+            },
+            {
+                "name": "CoffeShop demo app",
+                "role": "Mobile Engineer (Flutter)",
+                "description": "We develop a coffee shop app template to demo with client.",
                 "images": [
                     "assets/projects/coffeeshop/1.png",
                     "assets/projects/coffeeshop/2.png",
                     "assets/projects/coffeeshop/3.png",
-                    "assets/projects/coffeeshop/4.png"
+                    "assets/projects/coffeeshop/4.png",
+                    "assets/projects/coffeeshop/5.png",
+                    "assets/projects/coffeeshop/6.png"
                 ],
                 "links": [
-                    "https://google.com"
+                ]
+            },
+            {
+                "name": "Flutter Icon Network",
+                "role": "Mobile Engineer (Flutter, Ios, Android)",
+                "description": "I developed a Flutter plugin to work with native Android/Ios sdk of Icon network (a type of coin). \n \nNative SDK: https://www.icondev.io/docs/sdk-overview\n\nFeatures: create wallet, send icx to testnet, check balance, deploy smart contract, send token, check token balance.",
+                "images": [
+                ],
+                "links": [
+                    {
+                        "link": "https://github.com/icondao/flutter_icon_network",
+                        "type": "web"
+                    }
                 ]
             }
         ]

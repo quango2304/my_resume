@@ -147,13 +147,28 @@ class Project {
   final String role;
   final String description;
   final List<String> images;
-  final List<String> links;
+  final List<Link> links;
 
   factory Project.fromJson(Map<String, dynamic> json) => Project(
     name: json["name"],
     role: json["role"],
     description: json["description"],
     images: List<String>.from(json["images"].map((x) => x)),
-    links: List<String>.from(json["links"].map((x) => x)),
+    links: List<Link>.from(json["links"].map((x) => Link.fromJson(x))),
+  );
+}
+
+class Link {
+  Link({
+    required this.link,
+    required this.type,
+  });
+
+  final String link;
+  final String type;
+
+  factory Link.fromJson(Map<String, dynamic> json) => Link(
+    link: json["link"],
+    type: json["type"],
   );
 }

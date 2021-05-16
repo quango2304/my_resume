@@ -103,19 +103,15 @@ class ProjectsScreenMobile extends StatelessWidget {
                             'Project links:  '.s12w400(
                                 style: TextStyle(color: AppColors.c9C9C9F)),
                             Wrap(
-                              spacing: 4,
+                              spacing: 8,
                               children: [
                                 ...project.links
                                     .map(
                                       (link) =>
                                       GestureDetector(
-                                        child: FaIcon(
-                                          FontAwesomeIcons.link,
-                                          size: 10,
-                                          color: AppColors.c688389,
-                                        ),
+                                        child: getIconFromLinkType(link.type),
                                         onTap: () {
-                                          launch(link);
+                                          launch(link.link);
                                         },
                                       ),
                                 )
@@ -140,6 +136,29 @@ class ProjectsScreenMobile extends StatelessWidget {
             ),
           )),
     );
+  }
+
+  Widget getIconFromLinkType(String linkType) {
+    switch(linkType) {
+      case "android":
+        return FaIcon(
+          Icons.android,
+          size: 14,
+          color: Colors.lightGreen,
+        );
+      case "ios":
+        return FaIcon(
+          FontAwesomeIcons.appStoreIos,
+          size: 14,
+          color: Colors.lightBlueAccent,
+        );
+      default:
+        return FaIcon(
+          FontAwesomeIcons.chrome,
+          size: 14,
+          color: Colors.yellow,
+        );
+    }
   }
 
   Widget buildProjectItemImages(List<String> images) {
