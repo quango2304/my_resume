@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/rendering.dart';
 import 'package:my_resume/constants/app_colors.dart';
 import 'package:my_resume/extensions/extensions.dart';
 import 'package:my_resume/widgets/app_bar/app_bar_responsive.dart';
@@ -71,58 +72,67 @@ class AppButton extends StatefulWidget {
 class _AppButtonState extends State<AppButton> {
   bool isHovered = false;
 
+  void hideHover() {
+    setState(() {
+      isHovered = false;
+    });
+  }
+
+  void showHover() {
+    setState(() {
+      isHovered = true;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Center(
-      child: InkWell(
-          onHover: (value) {
-            setState(() {
-              isHovered = value;
-            });
+      child: MouseRegion(
+        cursor: SystemMouseCursors.click,
+        onHover: (_) {
+          showHover();
+        },
+        onExit: (_) {
+          hideHover();
+        },
+        child: GestureDetector(
+          onTap: () {
+            widget.onPress?.call();
           },
-          child: GestureDetector(
-            onTap: () {
-              widget.onPress?.call();
-            },
-            onTapDown: (_) {
-              setState(() {
-                isHovered = true;
-              });
-            },
-            onTapCancel: () {
-              setState(() {
-                isHovered = false;
-              });
-            },
-            onTapUp: (_) {
-              setState(() {
-                isHovered = false;
-              });
-            },
-            child: Container(
-              padding: widget.padding,
-              constraints: BoxConstraints(
-                minWidth: widget.minWidth
-              ),
-              decoration: BoxDecoration(
-                  color: isHovered
-                      ? widget.hoverBackgroundColor
-                      : widget.normalBackgroundColor,
-                  border: Border.all(
-                    color: isHovered
-                        ? widget.hoverBorderColor
-                        : widget.normalBorderColor,
-                  ),
-                  borderRadius:
-                      BorderRadius.all(Radius.circular(widget.borderRadius))),
-              child: Center(
-                child: widget.text.s10w700(
-                    color: isHovered
-                        ? widget.hoverTextColor
-                        : widget.normalTextColor),
-              ),
+          onTapDown: (_) {
+            showHover();
+          },
+          onTapCancel: () {
+            hideHover();
+          },
+          onTapUp: (_) {
+            hideHover();
+          },
+          child: Container(
+            padding: widget.padding,
+            constraints: BoxConstraints(
+              minWidth: widget.minWidth
             ),
-          )),
+            decoration: BoxDecoration(
+                color: isHovered
+                    ? widget.hoverBackgroundColor
+                    : widget.normalBackgroundColor,
+                border: Border.all(
+                  color: isHovered
+                      ? widget.hoverBorderColor
+                      : widget.normalBorderColor,
+                ),
+                borderRadius:
+                    BorderRadius.all(Radius.circular(widget.borderRadius))),
+            child: Center(
+              child: widget.text.s10w700(
+                  color: isHovered
+                      ? widget.hoverTextColor
+                      : widget.normalTextColor),
+            ),
+          ),
+        ),
+      ),
     );
   }
 }

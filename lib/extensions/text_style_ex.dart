@@ -5329,4 +5329,20 @@ extension TextStyles on String? {
           .merge(style),
     );
   }
+
+  Text s45w900(
+      {Color? color,
+        TextStyle? style,
+        int? maxLines,
+        TextOverflow? overflow,
+        TextAlign? textAlign}) {
+    return Text(
+      this ?? '',
+      maxLines: maxLines,
+      overflow: overflow,
+      textAlign: textAlign,
+      style: GoogleFonts.poppins(fontSize: 45, fontWeight: FontWeight.w900, color: color)
+          .merge(style),
+    );
+  }
 }

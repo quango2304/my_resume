@@ -6,6 +6,8 @@ import 'package:my_resume/utils/routing_helper.dart';
 import 'package:my_resume/widgets/hero_shuttle_builder.dart';
 import 'package:my_resume/widgets/user_avatar.dart';
 
+import 'app_bar_responsive.dart';
+
 class AppBarFullScreen extends StatefulWidget {
   static int currentIndex = 0;
 
@@ -16,12 +18,6 @@ class AppBarFullScreen extends StatefulWidget {
 class _AppBarFullScreenState extends State<AppBarFullScreen> {
   @override
   Widget build(BuildContext context) {
-    final items = {
-      'HOME': RoutingPageType.homeScreenResponsive(),
-      'RESUME': RoutingPageType.resumeScreenResponsive(),
-      'PROJECTS': RoutingPageType.projectsScreenResponsive(),
-      'CONTACT': RoutingPageType.contactScreenResponsive()
-    };
     return Scaffold(
       backgroundColor: Colors.white,
       body: SafeArea(
@@ -60,16 +56,16 @@ class _AppBarFullScreenState extends State<AppBarFullScreen> {
                       onTap: () {
                         AppBarFullScreen.currentIndex = i;
                         setState(() {});
-                        RoutingHelper().push(items.values.toList()[i]);
+                        RoutingHelper().push(AppBarResponsive.menuItems.values.toList()[i]);
                       },
-                      child: items.keys.toList()[i].s20w900(
+                      child: AppBarResponsive.menuItems.keys.toList()[i].s20w900(
                           style: TextStyle(
                               color: i == AppBarFullScreen.currentIndex
                                   ? AppColors.c0050FF
                                   : Colors.black)),
                     )),
                     separatorBuilder: (_, __) => 32.ver,
-                    itemCount: items.length,
+                    itemCount: AppBarResponsive.menuItems.length,
                   )
                 ],
               ),
