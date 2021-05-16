@@ -1,17 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:my_resume/constants/app_colors.dart';
-import 'package:my_resume/constants/app_images.dart';
 import 'package:my_resume/extensions/extensions.dart';
-import 'package:my_resume/utils/routing_helper.dart';
+import 'package:my_resume/utils/load_cv_json.dart';
 import 'package:my_resume/widgets/app_bar/app_bar_responsive.dart';
 import 'package:my_resume/widgets/app_button.dart';
-import 'package:my_resume/widgets/carousel_slider_images.dart';
 import 'package:my_resume/widgets/footer/footer_responsive.dart';
 import 'package:my_resume/widgets/shadow_button.dart';
-import 'package:page_transition/page_transition.dart';
-import 'package:get/get.dart';
+import 'package:my_resume/widgets/square_dot.dart';
 
 class ContactScreenDesktop extends StatefulWidget {
   @override
@@ -22,7 +18,37 @@ class _ContactScreenDesktopState extends State<ContactScreenDesktop> {
   var formKey = GlobalKey<FormState>();
   String message = '';
   String name = '';
-  String email = '';
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      backgroundColor: AppColors.cE6DBCF,
+      body: ListView(
+        padding: EdgeInsets.all(0),
+        physics: ClampingScrollPhysics(),
+        children: [
+          AppBarResponsive(),
+          ...buildHeader(),
+          40.ver,
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 20),
+            child: ShadowButton.normal(
+                child: Container(
+                  color: Colors.white,
+                  width: double.maxFinite,
+                  constraints: BoxConstraints(
+                      maxWidth: 1000
+                  ),
+                  padding: EdgeInsets.only(top: 40, left: 20, right: 20, bottom: 40),
+                  child: buildForm(),
+                )),
+          ),
+          200.ver,
+          FooterResponsive()
+        ],
+      ),
+    );
+  }
 
   List<Widget> buildHeader() {
     return [
@@ -34,7 +60,7 @@ class _ContactScreenDesktopState extends State<ContactScreenDesktop> {
             Row(
               mainAxisSize: MainAxisSize.min,
               children: [
-                squareDot(),
+                SquareDot(),
                 8.hoz,
                 "Let's talk".s20w800(),
               ],
@@ -45,26 +71,19 @@ class _ContactScreenDesktopState extends State<ContactScreenDesktop> {
     ];
   }
 
-  Widget squareDot() {
-    return Container(
-      width: 20,
-      height: 20,
-      color: AppColors.c0050FF,
-    );
-  }
-
   Widget buildForm() {
     return Form(
       key: formKey,
       child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           buildUsernameField(),
-          12.ver,
-          buildEmailField(),
-          12.ver,
+          40.ver,
+          "Message".s14w500(),
+          4.ver,
           buildMessageField(),
           12.ver,
-          _buildSubmitButton(),
+          Center(child: _buildSubmitButton()),
         ],
       ),
     );
@@ -92,34 +111,12 @@ class _ContactScreenDesktopState extends State<ContactScreenDesktop> {
     );
   }
 
-  TextFormField buildEmailField() {
-    return TextFormField(
-      style: _inputStyle,
-      initialValue: name,
-      textAlignVertical: TextAlignVertical.center,
-      autovalidateMode: AutovalidateMode.onUserInteraction,
-      keyboardType: TextInputType.emailAddress,
-      validator: (value) {
-        if (!(value ?? '').isEmail) {
-          return 'Please enter your email';
-        }
-      },
-      onChanged: (value) {
-        email = value;
-      },
-      decoration: textFieldDecoration(
-        "Your email...",
-        Icons.mail,
-      ),
-    );
-  }
-
   TextFormField buildMessageField() {
     return TextFormField(
       style: _inputStyle,
       textAlignVertical: TextAlignVertical.center,
       autovalidateMode: AutovalidateMode.onUserInteraction,
-      keyboardType: TextInputType.phone,
+      keyboardType: TextInputType.text,
       validator: (value) {
         if (value.isNullOrEmpty) {
           return 'Enter message';
@@ -143,7 +140,15 @@ class _ContactScreenDesktopState extends State<ContactScreenDesktop> {
       width: 100,
       child: AppButton.solidButton(text: 'Send', onPress: () {
         if(formKey.currentState?.validate() ?? false) {
-          print("asd");
+          final Uri _emailLaunchUri = Uri(
+              scheme: 'mailto',
+              path: myResume.contacts.mail,
+              queryParameters: {
+                'subject': name,
+                'body': message
+              }
+          );
+          launch(_emailLaunchUri.toString());
         }
       },),
     );
@@ -189,34 +194,4 @@ class _ContactScreenDesktopState extends State<ContactScreenDesktop> {
   TextStyle get _inputStyle =>
       GoogleFonts.poppins(color: AppColors.c7E7E7E, fontSize: 16);
 
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: AppColors.cE6DBCF,
-      body: ListView(
-        padding: EdgeInsets.all(0),
-        physics: ClampingScrollPhysics(),
-        children: [
-          AppBarResponsive(),
-          ...buildHeader(),
-          40.ver,
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 20),
-            child: ShadowButton.normal(
-                child: Container(
-                  color: Colors.white,
-                  width: double.maxFinite,
-                  constraints: BoxConstraints(
-                      maxWidth: 1000
-                  ),
-                  padding: EdgeInsets.only(top: 40, left: 20, right: 20, bottom: 40),
-                  child: buildForm(),
-                )),
-          ),
-          100.ver,
-          FooterResponsive()
-        ],
-      ),
-    );
-  }
 }
