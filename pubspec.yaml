@@ -35,6 +35,7 @@ dependencies:
   url_launcher:
   page_transition:
   get:
+  url_strategy:
 
 dev_dependencies:
   flutter_test:
