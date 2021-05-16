@@ -2,7 +2,7 @@
     "name": "QUAN NGO",
     "title": "MOBILE ENGINEER",
     "cv_url": "https://drive.google.com/file/d/1K_DwPwKTJiNe5CRBCZ970TeCJ0BRcp8M/view?usp=sharing",
-    "introduction": " Studied in Information Security major but I passionate about developing mobile beautiful app. \n \n I also eager to learn new thing, self learning is my best skill. \n \n My strong: ownership characteristics, care about clean and maintainable code, has worked with Android native app, Ios native app and developed Flutter plugin wrapper Android and Ios SDKs.",
+    "introduction": "Hello,\nI'm Quan Ngo, from VietNam. I graduated as Information Security Engineer but I passionate about developing beautiful mobile apps.\n\nI've more than 2 year experiences in mobile app development and currently I'm a Flutter developer. \n\n It'll be nice to meet you and I hope that we can work with each other!!!",
     "contacts": {
         "facebook": "https://www.facebook.com/wanngoo/",
         "instagram": "https://instagram.com/quangoo/",
@@ -68,7 +68,7 @@
         }
     ],
     "projects": {
-        "intro_text": "I'm a paragraph. Click here to add your own text and edit me. It’s easy. Just click “Edit Text” or double click me to add your own content and make changes to the font. I’m a great place for you to tell a story and let your users know a little more about you.",
+        "intro_text": "My strong: ownership characteristics, care about clean and maintainable code, has worked with Android native app, Ios native app and developed Flutter plugin wrapper Android and Ios SDKs.\n\nBelow are some projects that I've worked with",
         "projects": [
             {
                 "name": "ShopForm",
