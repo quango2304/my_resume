@@ -23,9 +23,7 @@ class _ContactScreenDesktopState extends State<ContactScreenDesktop> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: AppColors.cE6DBCF,
-      body: ListView(
-        padding: EdgeInsets.all(0),
-        physics: ClampingScrollPhysics(),
+      body: Column(
         children: [
           AppBarResponsive(),
           ...buildHeader(),
@@ -37,13 +35,13 @@ class _ContactScreenDesktopState extends State<ContactScreenDesktop> {
                   color: Colors.white,
                   width: double.maxFinite,
                   constraints: BoxConstraints(
-                      maxWidth: 1000
+                      maxWidth: 600
                   ),
                   padding: EdgeInsets.only(top: 40, left: 20, right: 20, bottom: 40),
                   child: buildForm(),
                 )),
           ),
-          200.ver,
+          Spacer(),
           FooterResponsive()
         ],
       ),

@@ -133,7 +133,8 @@ class HomeScreenDesktop extends StatelessWidget {
                       child: AppButton.solidButton(
                         text: "RESUME",
                         onPress: () {
-                          launch(myResume.cvUrl);
+                          RoutingHelper().push(RoutingPageType.resumeScreenResponsive());
+                          AppBarFullScreen.currentIndex = 1;
                         },
                       ),
                     ),

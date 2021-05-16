@@ -29,33 +29,49 @@ class ResumeScreenDesktop extends StatelessWidget {
     );
   }
 
+  Widget maxWidthWrapper({required Widget child}) {
+    return Center(
+      child: Container(
+        constraints: BoxConstraints(
+          maxWidth: 700,
+        ),
+        child: child,
+      ),
+    );
+  }
+
   List<Widget> buildWorkHistory() {
     return [
       SliverToBoxAdapter(
-        child: Padding(
-          padding: EdgeInsets.symmetric(horizontal: 20),
-          child: Column(
-            children: [
-              40.ver,
-              Row(
-                mainAxisSize: MainAxisSize.min,
-                children: [
-                  SquareDot(),
-                  8.hoz,
-                  "Resume".s20w800(),
-                ],
-              ),
-              40.ver,
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  'Experience'.s18w800(),
-                  AppButton.solidButton(text: "DOWNLOAD CV", onPress: () {
-                    launch(myResume.cvUrl);
-                  },)
-                ],
-              ),
-            ],
+        child: maxWidthWrapper(
+          child: Padding(
+            padding: EdgeInsets.symmetric(horizontal: 20),
+            child: Column(
+              children: [
+                40.ver,
+                Row(
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    SquareDot(),
+                    8.hoz,
+                    "Resume".s20w800(),
+                  ],
+                ),
+                40.ver,
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    'Experience'.s18w800(),
+                    AppButton.solidButton(
+                      text: "DOWNLOAD CV",
+                      onPress: () {
+                        launch(myResume.cvUrl);
+                      },
+                    )
+                  ],
+                ),
+              ],
+            ),
           ),
         ),
       ),
@@ -63,17 +79,22 @@ class ResumeScreenDesktop extends StatelessWidget {
         padding: EdgeInsets.only(left: 20, right: 20, top: 40),
         sliver: SliverList(
             delegate: SliverChildBuilderDelegate((_, index) {
-              final experience = myResume.experiences[index];
-              return Padding(
-                padding: const EdgeInsets.only(bottom: 40),
-                child: ShadowButton.normal(
-                    child: Container(
-                      color: Colors.white,
-                      width: double.maxFinite,
-                      padding: EdgeInsets.symmetric(
-                        vertical: 40,
-                        horizontal: 20,
-                      ),
+          final experience = myResume.experiences[index];
+          return maxWidthWrapper(
+            child: Padding(
+              padding: const EdgeInsets.only(bottom: 40),
+              child: ShadowButton.normal(
+                  child: Container(
+                color: Colors.white,
+                width: double.maxFinite,
+                padding: EdgeInsets.symmetric(
+                  vertical: 80,
+                  horizontal: 40,
+                ),
+                child: Row(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Expanded(
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
@@ -82,16 +103,22 @@ class ResumeScreenDesktop extends StatelessWidget {
                           experience.jobPosition.s14w600(),
                           12.ver,
                           experience.companyName.s16w500(),
-                          experience.companyLocation
-                              .s12w400(style: TextStyle(color: AppColors.c9C9C9F)),
+                          experience.companyLocation.s12w400(
+                              style: TextStyle(color: AppColors.c9C9C9F)),
                           12.ver,
-                          experience.description
-                              .s16w400()
                         ],
                       ),
-                    )),
-              );
-            }, childCount: myResume.experiences.length)),
+                    ),
+                    24.hoz,
+                    Expanded(
+                      child: experience.description.s16w400(),
+                    )
+                  ],
+                ),
+              )),
+            ),
+          );
+        }, childCount: myResume.experiences.length)),
       )
     ];
   }
@@ -99,13 +126,15 @@ class ResumeScreenDesktop extends StatelessWidget {
   List<Widget> buildEducation() {
     return [
       SliverToBoxAdapter(
-        child: Padding(
-          padding: EdgeInsets.symmetric(horizontal: 20),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              'Education'.s18w800(),
-            ],
+        child: maxWidthWrapper(
+          child: Padding(
+            padding: EdgeInsets.symmetric(horizontal: 20),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.start,
+              children: [
+                'Education'.s18w800(),
+              ],
+            ),
           ),
         ),
       ),
@@ -116,34 +145,46 @@ class ResumeScreenDesktop extends StatelessWidget {
         padding: EdgeInsets.symmetric(horizontal: 20),
         sliver: SliverList(
             delegate: SliverChildBuilderDelegate((_, index) {
-              final education = myResume.educations[index];
-              return Padding(
-                padding: const EdgeInsets.only(bottom: 40),
-                child: ShadowButton.normal(
-                    child: Container(
-                      color: Colors.white,
-                      width: double.maxFinite,
-                      padding: EdgeInsets.symmetric(
-                        vertical: 40,
-                        horizontal: 20,
-                      ),
+          final education = myResume.educations[index];
+          return maxWidthWrapper(
+            child: Padding(
+              padding: const EdgeInsets.only(bottom: 40),
+              child: ShadowButton.normal(
+                  child: Container(
+                color: Colors.white,
+                width: double.maxFinite,
+                padding: EdgeInsets.symmetric(
+                  vertical: 80,
+                  horizontal: 40,
+                ),
+                child: Row(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Expanded(
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           education.period.s15w800(color: AppColors.c0050FF),
                           8.ver,
-                          education.universityName.s14w600(),
+                          education.degreeLevel.s14w600(),
                           12.ver,
-                          education.degreeLevel
-                              .s12w400(style: TextStyle(color: AppColors.c9C9C9F)),
+                          education.universityName.s16w500(),
+                          education.universityLocation.s12w400(
+                              style: TextStyle(color: AppColors.c9C9C9F)),
                           12.ver,
-                          education.description
-                              .s16w400()
                         ],
                       ),
-                    )),
-              );
-            }, childCount: myResume.educations.length)),
+                    ),
+                    24.hoz,
+                    Expanded(
+                      child: education.description.s16w400(),
+                    )
+                  ],
+                ),
+              )),
+            ),
+          );
+        }, childCount: myResume.educations.length)),
       )
     ];
   }
@@ -152,45 +193,47 @@ class ResumeScreenDesktop extends StatelessWidget {
     return SliverPadding(
       padding: EdgeInsets.symmetric(horizontal: 20),
       sliver: SliverToBoxAdapter(
-        child: ShadowButton.normal(
-            child: Container(
-              color: Colors.white,
-              width: double.maxFinite,
-              padding: EdgeInsets.symmetric(
-                vertical: 40,
-                horizontal: 20,
-              ),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  'Professional skillset'.s18w900(),
-                  40.ver,
-                  buildSkillsSet(),
-                  60.ver,
-                  'Languages'.s18w900(),
-                  40.ver,
-                  buildLanguages(),
-                ],
-              ),
-            )),
+        child: maxWidthWrapper(
+          child: ShadowButton.normal(
+              child: Container(
+            color: Colors.white,
+            width: double.maxFinite,
+            padding: EdgeInsets.symmetric(
+              vertical: 40,
+              horizontal: 20,
+            ),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                'Professional skillset'.s18w900(),
+                40.ver,
+                buildSkillsSet(),
+                60.ver,
+                'Languages'.s18w900(),
+                40.ver,
+                buildLanguages(),
+              ],
+            ),
+          )),
+        ),
       ),
     );
   }
 
-  ListView buildSkillsSet() {
-    return ListView.separated(
-        padding: EdgeInsets.zero,
-        shrinkWrap: true,
-        physics: NeverScrollableScrollPhysics(),
-        itemBuilder: (_, i) => Row(
-          children: [
-            SquareDot(),
-            10.hoz,
-            myResume.professionalSkills[i].s14w400()
-          ],
-        ),
-        separatorBuilder: (_, __) => 20.ver,
-        itemCount: myResume.professionalSkills.length);
+  Widget buildSkillsSet() {
+    return Wrap(
+      runSpacing: 8,
+      children: [
+        ...myResume.professionalSkills
+            .map((e) => Container(
+                  width: 300,
+                  child: Row(
+                    children: [SquareDot(), 10.hoz, e.s14w400()],
+                  ),
+                ))
+            .toList()
+      ],
+    );
   }
 
   ListView buildLanguages() {
@@ -199,12 +242,8 @@ class ResumeScreenDesktop extends StatelessWidget {
         shrinkWrap: true,
         physics: NeverScrollableScrollPhysics(),
         itemBuilder: (_, i) => Row(
-          children: [
-            SquareDot(),
-            10.hoz,
-            myResume.languages[i].s14w400()
-          ],
-        ),
+              children: [SquareDot(), 10.hoz, myResume.languages[i].s14w400()],
+            ),
         separatorBuilder: (_, __) => 20.ver,
         itemCount: myResume.languages.length);
   }

@@ -41,22 +41,24 @@ class ProjectsScreenDesktop extends StatelessWidget {
   List<Widget> buildProjectsIntro() {
     return [
       SliverToBoxAdapter(
-        child: Padding(
-          padding: EdgeInsets.symmetric(horizontal: 20),
-          child: Column(
-            children: [
-              40.ver,
-              Row(
-                mainAxisSize: MainAxisSize.min,
-                children: [
-                  SquareDot(),
-                  8.hoz,
-                  "Projects".s20w800(),
-                ],
-              ),
-              40.ver,
-              myResume.projects.introText.s16w400(),
-            ],
+        child: maxWidthWrapper(
+          child: Padding(
+            padding: EdgeInsets.symmetric(horizontal: 20),
+            child: Column(
+              children: [
+                40.ver,
+                Row(
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    SquareDot(),
+                    8.hoz,
+                    "Projects".s20w800(),
+                  ],
+                ),
+                40.ver,
+                myResume.projects.introText.s16w400(textAlign: TextAlign.center),
+              ],
+            ),
           ),
         ),
       ),
@@ -74,67 +76,78 @@ class ProjectsScreenDesktop extends StatelessWidget {
   Widget buildProjectItem(Project project) {
     return Padding(
       padding: const EdgeInsets.only(bottom: 40),
-      child: ShadowButton.normal(
-          child: Container(
-            color: Colors.white,
-            width: double.maxFinite,
-            padding: EdgeInsets.only(top: 40),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Row(
-                  children: [
-                    Container(
-                      height: 60,
-                      width: 10,
-                      color: AppColors.c0050FF,
-                    ),
-                    10.hoz,
-                    Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
+      child: maxWidthWrapper(
+        child: ShadowButton.normal(
+            child: Container(
+              color: Colors.white,
+              width: double.maxFinite,
+              child: Row(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  Expanded(
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        project.name.s15w800(color: AppColors.c0050FF),
-                        8.ver,
-                        if(project.role.isNotEmpty)...[project.role.s14w300(),
-                          4.ver,
-                        ],
-                        if(project.links.isNotEmpty) Row(
+                        40.ver,
+                        Row(
                           children: [
-                            'Project links:  '.s12w400(
-                                style: TextStyle(color: AppColors.c9C9C9F)),
-                            Wrap(
-                              spacing: 8,
+                            Container(
+                              height: 60,
+                              width: 10,
+                              color: AppColors.c0050FF,
+                            ),
+                            30.hoz,
+                            Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
-                                ...project.links
-                                    .map(
-                                      (link) =>
-                                      GestureDetector(
-                                        child: getIconFromLinkType(link.type),
-                                        onTap: () {
-                                          launch(link.link);
-                                        },
-                                      ),
-                                )
-                                    .toList()
+                                project.name.s15w800(color: AppColors.c0050FF),
+                                8.ver,
+                                if(project.role.isNotEmpty)...[project.role.s14w300(),
+                                  4.ver,
+                                ],
+                                if(project.links.isNotEmpty) Row(
+                                  children: [
+                                    'Project links:  '.s12w400(
+                                        style: TextStyle(color: AppColors.c9C9C9F)),
+                                    Wrap(
+                                      spacing: 8,
+                                      children: [
+                                        ...project.links
+                                            .map(
+                                              (link) =>
+                                              GestureDetector(
+                                                child: getIconFromLinkType(link.type),
+                                                onTap: () {
+                                                  launch(link.link);
+                                                },
+                                              ),
+                                        )
+                                            .toList()
+                                      ],
+                                    )
+                                  ],
+                                ),
                               ],
-                            )
+                            ),
                           ],
                         ),
+                        12.ver,
+                        Padding(
+                          padding: const EdgeInsets.symmetric(horizontal: 40),
+                          child: project.description.s16w400(),
+                        ),
+                        40.ver,
                       ],
                     ),
-                  ],
-                ),
-                12.ver,
-                Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 20),
-                  child: project.description.s16w400(),
-                ),
-                20.ver,
-                if(project.images.isNotEmpty) buildProjectItemImages(
-                    project.images),
-              ],
-            ),
-          )),
+                  ),
+                  if(project.images.isNotEmpty) Expanded(
+                    child: buildProjectItemImages(
+                        project.images),
+                  ),
+                ],
+              ),
+            )),
+      ),
     );
   }
 
@@ -161,10 +174,22 @@ class ProjectsScreenDesktop extends StatelessWidget {
     }
   }
 
+  Widget maxWidthWrapper({required Widget child}) {
+    return Center(
+      child: Container(
+        constraints: BoxConstraints(
+          maxWidth: 700,
+        ),
+        child: child,
+      ),
+    );
+  }
+
   Widget buildProjectItemImages(List<String> images) {
     return Container(
         color: Colors.black,
         child: CarouselBanner(
+          height: 450,
           images: images,
           onPressItem: (index) {
             RoutingHelper().push(RoutingPageType.imagesViewDialog(

@@ -4,13 +4,16 @@ import 'package:my_resume/constants/app_colors.dart';
 import 'package:my_resume/widgets/dot_indicator/dot_decorator.dart';
 import 'package:my_resume/widgets/dot_indicator/dot_indicator.dart';
 
+import '../extensions/extensions.dart';
+
 
 class CarouselBanner extends StatefulWidget {
   final List<String> images;
   final double indicatorBottomMargin;
   final Function(int index)? onPressItem;
+  final double height;
 
-  CarouselBanner({Key? key, required this.images, this.indicatorBottomMargin = 8, this.onPressItem}) : super(key: key);
+  CarouselBanner({Key? key, required this.images, this.indicatorBottomMargin = 8, this.onPressItem, this.height= 300}) : super(key: key);
 
   @override
   _CarouselBannerState createState() => _CarouselBannerState();
@@ -32,17 +35,16 @@ class _CarouselBannerState extends State<CarouselBanner> {
                 widget.onPressItem?.call(itemIndex);
               },
               child: Container(
-                color: Colors.white,
-                width: double.maxFinite,
+                color: Colors.black,
                 child: Image.asset(
                   widget.images[itemIndex],
                   fit: BoxFit.contain,
                 ),
-              ),
+              ).showCursorOnHover,
             );
           },
           options: CarouselOptions(
-              height: 273.0,
+              height: widget.height,
               viewportFraction: 1,
               autoPlay: true,
               onPageChanged: (index, _) {

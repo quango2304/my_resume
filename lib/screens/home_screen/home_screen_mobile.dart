@@ -72,7 +72,8 @@ class HomeScreenMobile extends StatelessWidget {
                           AppButton.solidButton(
                             text: "RESUME",
                             onPress: () {
-                              launch(myResume.cvUrl);
+                              RoutingHelper().push(RoutingPageType.resumeScreenResponsive());
+                              AppBarFullScreen.currentIndex = 1;
                             },
                           ),
                           20.hoz,
