@@ -8,16 +8,50 @@ import 'package:my_resume/utils/routing_helper.dart';
 import 'package:my_resume/widgets/app_bar/app_bar_responsive.dart';
 import 'package:my_resume/widgets/carousel_slider_images.dart';
 import 'package:my_resume/widgets/footer/footer_responsive.dart';
+import 'package:my_resume/widgets/scroll_up_float_btn.dart';
 import 'package:my_resume/widgets/shadow_button.dart';
 import 'package:my_resume/widgets/square_dot.dart';
 import 'package:page_transition/page_transition.dart';
 
-class ProjectsScreenMobile extends StatelessWidget {
+class ProjectsScreenMobile extends StatefulWidget {
+  @override
+  _ProjectsScreenMobileState createState() => _ProjectsScreenMobileState();
+}
+
+class _ProjectsScreenMobileState extends State<ProjectsScreenMobile> {
+  bool showFloatBtn = false;
+  final scrollController = ScrollController();
+
+  @override
+  void initState() {
+    scrollController.addListener(() {
+      if (scrollController.offset == 0 && showFloatBtn == true) {
+        setState(() {
+          showFloatBtn = false;
+        });
+      } else if (showFloatBtn == false) {
+        setState(() {
+          showFloatBtn = true;
+        });
+      }
+    });
+    super.initState();
+  }
+
+  @override
+  void dispose() {
+    scrollController.dispose();
+    super.dispose();
+  }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: AppColors.cE6DBCF,
+      floatingActionButton: !showFloatBtn
+          ? null
+          : ScrollUpFloatButton(scrollController: scrollController,),
       body: CustomScrollView(
+        controller: scrollController,
         physics: ClampingScrollPhysics(),
         slivers: [
           SliverToBoxAdapter(child: AppBarResponsive()),

@@ -5,15 +5,50 @@ import 'package:my_resume/utils/load_cv_json.dart';
 import 'package:my_resume/widgets/app_bar/app_bar_responsive.dart';
 import 'package:my_resume/widgets/app_button.dart';
 import 'package:my_resume/widgets/footer/footer_responsive.dart';
+import 'package:my_resume/widgets/scroll_up_float_btn.dart';
 import 'package:my_resume/widgets/shadow_button.dart';
 import 'package:my_resume/widgets/square_dot.dart';
 
-class ResumeScreenDesktop extends StatelessWidget {
+class ResumeScreenDesktop extends StatefulWidget {
+  @override
+  _ResumeScreenDesktopState createState() => _ResumeScreenDesktopState();
+}
+
+class _ResumeScreenDesktopState extends State<ResumeScreenDesktop> {
+  final scrollController = ScrollController();
+  bool showFloatBtn = false;
+
+  @override
+  void initState() {
+    scrollController.addListener(() {
+      if (scrollController.offset == 0 && showFloatBtn == true) {
+        setState(() {
+          showFloatBtn = false;
+        });
+      } else if (showFloatBtn == false) {
+        setState(() {
+          showFloatBtn = true;
+        });
+      }
+    });
+    super.initState();
+  }
+
+  @override
+  void dispose() {
+    scrollController.dispose();
+    super.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: AppColors.cE6DBCF,
+      floatingActionButton: !showFloatBtn
+          ? null
+          : ScrollUpFloatButton(scrollController: scrollController,),
       body: CustomScrollView(
+        controller: scrollController,
         physics: ClampingScrollPhysics(),
         slivers: [
           SliverToBoxAdapter(child: AppBarResponsive()),
@@ -199,8 +234,8 @@ class ResumeScreenDesktop extends StatelessWidget {
             color: Colors.white,
             width: double.maxFinite,
             padding: EdgeInsets.symmetric(
-              vertical: 40,
-              horizontal: 20,
+              vertical: 80,
+              horizontal: 40,
             ),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,

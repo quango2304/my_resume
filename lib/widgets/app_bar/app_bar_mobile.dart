@@ -4,7 +4,6 @@ import 'package:my_resume/constants/app_colors.dart';
 import 'package:my_resume/extensions/extensions.dart';
 import 'package:my_resume/utils/load_cv_json.dart';
 import 'package:my_resume/utils/routing_helper.dart';
-import 'package:my_resume/widgets/hero_shuttle_builder.dart';
 import 'package:my_resume/widgets/user_avatar.dart';
 
 class AppBarMobile extends StatelessWidget {

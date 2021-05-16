@@ -1,10 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:my_resume/constants/app_colors.dart';
 import 'package:my_resume/extensions/extensions.dart';
 import 'package:my_resume/utils/load_cv_json.dart';
 import 'package:my_resume/widgets/socials_widget.dart';
-import 'package:my_resume/widgets/user_avatar.dart';
 
 class FooterMobile extends StatelessWidget {
   @override
@@ -30,7 +27,7 @@ class FooterMobile extends StatelessWidget {
                       myResume.contacts.phone.s14w400()
                     ],
                   ),
-                ),
+                ).showCursorOnHover,
               ),
               Expanded(
                 child: GestureDetector(
@@ -52,7 +49,7 @@ class FooterMobile extends StatelessWidget {
                       myResume.contacts.mail.s14w400()
                     ],
                   ),
-                ),
+                ).showCursorOnHover,
               ),
             ],
           ),

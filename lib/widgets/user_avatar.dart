@@ -1,8 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:my_resume/constants/app_colors.dart';
 import 'package:my_resume/constants/app_images.dart';
-import 'package:my_resume/extensions/extensions.dart';
 
 class UserAvatar extends StatelessWidget {
   final double size;

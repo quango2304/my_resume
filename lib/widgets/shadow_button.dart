@@ -1,7 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:my_resume/constants/app_colors.dart';
-import 'package:my_resume/extensions/extensions.dart';
-import 'package:my_resume/widgets/app_bar/app_bar_responsive.dart';
 
 class ShadowButton extends StatefulWidget {
   final Color hoverBackgroundColor;

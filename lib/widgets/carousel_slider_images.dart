@@ -1,6 +1,5 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
-import 'package:my_resume/constants/app_colors.dart';
 import 'package:my_resume/widgets/dot_indicator/dot_decorator.dart';
 import 'package:my_resume/widgets/dot_indicator/dot_indicator.dart';
 

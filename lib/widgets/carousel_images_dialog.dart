@@ -1,7 +1,6 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:my_resume/constants/app_images.dart';
 import 'package:my_resume/extensions/extensions.dart';
 import 'package:my_resume/utils/routing_helper.dart';
 import 'package:my_resume/widgets/dot_indicator/dot_decorator.dart';
