@@ -29,7 +29,7 @@ class _ImagesViewDialogState extends State<ImagesViewDialog> {
   @override
   Widget build(BuildContext context) {
     return Dialog(
-      backgroundColor: Colors.transparent,
+      backgroundColor: Colors.black.withOpacity(0.5),
       elevation: 0,
       insetPadding: EdgeInsets.zero,
       child: Stack(
@@ -78,22 +78,24 @@ class _ImagesViewDialogState extends State<ImagesViewDialog> {
             child: SafeArea(
               child: Padding(
                 padding: EdgeInsets.all(16),
-                child: IconButton(
-                  onPressed: () {
+                child: GestureDetector(
+                  onTap: () {
                     context.vxNav.pop();
                   },
-                  icon: Container(
+                  child: Container(
                     decoration: BoxDecoration(
                       shape: BoxShape.circle,
                       color: Colors.blue,
                     ),
+                    width: 45,
+                    height: 45,
                     alignment: Alignment.center,
                     child: Icon(
                       Icons.close,
-                      color: Colors.white, size: 20,
+                      color: Colors.white, size: 25,
                     ),
                   ),
-                ),
+                ).showCursorOnHover,
               ),
             ),
           )
