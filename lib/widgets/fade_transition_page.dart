@@ -9,6 +9,8 @@ class FadeTransparentAnimationPage extends Page {
   Route createRoute(BuildContext context) {
     return PageRouteBuilder(
       settings: this,
+      transitionDuration: Duration(milliseconds: 150),
+      reverseTransitionDuration: Duration(milliseconds: 150),
       opaque: false,
       pageBuilder: (context, animation, animation2) {
         var curveTween = CurveTween(curve: Curves.easeIn);
