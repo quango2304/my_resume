@@ -3,7 +3,6 @@ import 'package:my_resume/constants/app_colors.dart';
 import 'package:my_resume/extensions/extensions.dart';
 import 'package:my_resume/utils/load_cv_json.dart';
 import 'package:my_resume/constants/app_routes.dart';
-import 'package:my_resume/widgets/app_bar/app_bar_full_screen.dart';
 import 'package:my_resume/widgets/app_bar/app_bar_responsive.dart';
 import 'package:my_resume/widgets/app_button.dart';
 import 'package:my_resume/widgets/footer/footer_responsive.dart';

@@ -1,3 +1,4 @@
+import 'package:my_resume/widgets/fade_transition_page.dart';
 import 'package:velocity_x/velocity_x.dart';
 import 'package:flutter/material.dart';
 import 'package:my_resume/screens/contact_screen/contact_screen_responsive.dart';
@@ -10,7 +11,7 @@ import 'package:my_resume/widgets/carousel_images_dialog.dart';
 
 class RoutingHelper {
   final routerDelegate = VxNavigator(
-    notFoundPage: (uri, params) => MaterialPage(
+    notFoundPage: (uri, params) => FadeTransparentAnimationPage(
       key: ValueKey('not-found-page'),
       child: Builder(
         builder: (context) => Scaffold(
@@ -21,13 +22,13 @@ class RoutingHelper {
       ),
     ),
     routes: {
-      AppRoutes.home: (uri, params) => MaterialPage(child: HomeScreenResponsive()),
+      AppRoutes.home: (uri, params) => FadeTransparentAnimationPage(child: HomeScreenResponsive()),
       AppRoutes.contact: (uri, params) =>
-          MaterialPage(child: ContactScreenResponsive()),
-      AppRoutes.projects: (uri, params) => MaterialPage(child: ProjectsScreenResponsive()),
-      AppRoutes.resume: (uri, params) => MaterialPage(child: ResumeScreenResponsive()),
-      AppRoutes.app_bar_full: (uri, params) => MaterialPage(child: AppBarFullScreen()),
-      AppRoutes.images_view: (uri, params) => MaterialPage(child: ImagesViewDialog(images: params['images'],)),
+          FadeTransparentAnimationPage(child: ContactScreenResponsive()),
+      AppRoutes.projects: (uri, params) => FadeTransparentAnimationPage(child: ProjectsScreenResponsive()),
+      AppRoutes.resume: (uri, params) => FadeTransparentAnimationPage(child: ResumeScreenResponsive()),
+      AppRoutes.app_bar_full: (uri, params) => FadeTransparentAnimationPage(child: AppBarFullScreen()),
+      AppRoutes.images_view: (uri, params) => FadeTransparentAnimationPage(child: ImagesViewDialog(images: params['images'],)),
     },
   );
 
