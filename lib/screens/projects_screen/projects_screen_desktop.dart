@@ -4,14 +4,13 @@ import 'package:my_resume/constants/app_colors.dart';
 import 'package:my_resume/extensions/extensions.dart';
 import 'package:my_resume/models/my_resume.dart';
 import 'package:my_resume/utils/load_cv_json.dart';
-import 'package:my_resume/utils/routing_helper.dart';
+import 'package:my_resume/constants/app_routes.dart';
 import 'package:my_resume/widgets/app_bar/app_bar_responsive.dart';
 import 'package:my_resume/widgets/carousel_slider_images.dart';
 import 'package:my_resume/widgets/footer/footer_responsive.dart';
 import 'package:my_resume/widgets/scroll_up_float_btn.dart';
 import 'package:my_resume/widgets/shadow_button.dart';
 import 'package:my_resume/widgets/square_dot.dart';
-import 'package:page_transition/page_transition.dart';
 
 class ProjectsScreenDesktop extends StatefulWidget {
   @override
@@ -231,10 +230,9 @@ class _ProjectsScreenDesktopState extends State<ProjectsScreenDesktop> {
           height: 450,
           images: images,
           onPressItem: (index) {
-            RoutingHelper().push(
-                RoutingPageType.imagesViewDialog(
-                    images: images, initialIndex: index),
-                type: PageTransitionType.scale);
+            context.vxNav.push(Uri(path: AppRoutes.images_view), params: {
+              'images': images
+            });
           },
         ));
   }

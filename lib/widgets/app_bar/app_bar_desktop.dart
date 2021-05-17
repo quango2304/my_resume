@@ -3,7 +3,7 @@ import 'package:flutter/rendering.dart';
 import 'package:my_resume/constants/app_colors.dart';
 import 'package:my_resume/extensions/extensions.dart';
 import 'package:my_resume/utils/load_cv_json.dart';
-import 'package:my_resume/utils/routing_helper.dart';
+import 'package:my_resume/constants/app_routes.dart';
 import 'package:my_resume/widgets/user_avatar.dart';
 import 'app_bar_full_screen.dart';
 import 'app_bar_responsive.dart';

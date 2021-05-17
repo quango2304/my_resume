@@ -3,7 +3,7 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:my_resume/constants/app_colors.dart';
 import 'package:my_resume/extensions/extensions.dart';
 import 'package:my_resume/utils/load_cv_json.dart';
-import 'package:my_resume/utils/routing_helper.dart';
+import 'package:my_resume/constants/app_routes.dart';
 import 'package:my_resume/widgets/user_avatar.dart';
 
 class AppBarMobile extends StatelessWidget {
@@ -31,7 +31,7 @@ class AppBarMobile extends StatelessWidget {
             ],
           )),
           InkWell(child: FaIcon(Icons.menu, size: 40, color: AppColors.c2386E8,), onTap: () {
-            RoutingHelper().push(RoutingPageType.appBarFullScreen());
+            context.vxNav.push(Uri(path: AppRoutes.app_bar_full));
           },)
         ],
       ),

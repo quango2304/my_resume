@@ -4,7 +4,7 @@ import 'package:my_resume/screens/home_screen/home_screen_responsive.dart';
 import 'package:my_resume/screens/projects_screen/projects_screen_responsive.dart';
 import 'package:my_resume/screens/resume_screen/resume_screen_responsive.dart';
 import 'package:my_resume/utils/load_cv_json.dart';
-import 'package:my_resume/utils/routing_helper.dart';
+import 'package:my_resume/constants/app_routes.dart';
 import 'package:my_resume/widgets/app_bar/app_bar_full_screen.dart';
 import 'package:my_resume/widgets/carousel_images_dialog.dart';
 import 'package:url_strategy/url_strategy.dart';

@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:my_resume/constants/app_colors.dart';
 import 'package:my_resume/extensions/extensions.dart';
-import 'package:my_resume/utils/routing_helper.dart';
 import 'app_bar_responsive.dart';
 
 class AppBarFullScreen extends StatefulWidget {

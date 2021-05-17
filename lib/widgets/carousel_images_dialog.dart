@@ -2,7 +2,6 @@ import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:my_resume/extensions/extensions.dart';
-import 'package:my_resume/utils/routing_helper.dart';
 import 'package:my_resume/widgets/dot_indicator/dot_decorator.dart';
 import 'package:my_resume/widgets/dot_indicator/dot_indicator.dart';
 
@@ -81,7 +80,7 @@ class _ImagesViewDialogState extends State<ImagesViewDialog> {
                 padding: EdgeInsets.all(16),
                 child: IconButton(
                   onPressed: () {
-                    RoutingHelper().pop();
+                    context.vxNav.pop();
                   },
                   icon: Container(
                     decoration: BoxDecoration(
