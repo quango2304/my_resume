@@ -46,24 +46,22 @@ class _AppBarFullScreenState extends State<AppBarFullScreen> {
                 crossAxisAlignment: CrossAxisAlignment.center,
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Obx(
-                    () => ListView.separated(
-                      shrinkWrap: true,
-                      itemBuilder: (_, i) => Center(
-                          child: GestureDetector(
-                            onTap: () {
-                              setState(() {});
-                              context.vxNav.push(Uri(path: AppBarResponsive.menuItems.values.toList()[i]));
-                            },
-                            child: AppBarResponsive.menuItems.keys.toList()[i].s20w900(
-                                style: TextStyle(
-                                    color: i == AppBarFullScreen.currentIndex.value
-                                        ? AppColors.c2386E8
-                                        : Colors.black)),
-                          )),
-                      separatorBuilder: (_, __) => 32.ver,
-                      itemCount: AppBarResponsive.menuItems.length,
-                    ),
+                  ListView.separated(
+                    shrinkWrap: true,
+                    itemBuilder: (_, i) => Center(
+                        child: GestureDetector(
+                          onTap: () {
+                            setState(() {});
+                            context.vxNav.push(Uri(path: AppBarResponsive.menuItems.values.toList()[i]));
+                          },
+                          child: Obx(()=> AppBarResponsive.menuItems.keys.toList()[i].s20w900(
+                              style: TextStyle(
+                                  color: i == AppBarFullScreen.currentIndex.value
+                                      ? AppColors.c2386E8
+                                      : Colors.black))),
+                        ).showCursorOnHover),
+                    separatorBuilder: (_, __) => 32.ver,
+                    itemCount: AppBarResponsive.menuItems.length,
                   )
                 ],
               ),
