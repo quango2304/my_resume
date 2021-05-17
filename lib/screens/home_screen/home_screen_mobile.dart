@@ -106,7 +106,7 @@ class _HomeScreenMobileState extends State<HomeScreenMobile> {
                           AppButton.solidButton(
                             text: "RESUME",
                             onPress: () {
-                              RoutingHelper().push(RoutingPageType.resumeScreenResponsive());
+                              context.vxNav.push(Uri(path: AppRoutes.resume));
                               AppBarFullScreen.currentIndex = 1;
                             },
                           ),
@@ -114,7 +114,7 @@ class _HomeScreenMobileState extends State<HomeScreenMobile> {
                           AppButton.outlineButton(
                             text: "PROJECTS",
                             onPress: () {
-                              RoutingHelper().push(RoutingPageType.projectsScreenResponsive());
+                              context.vxNav.push(Uri(path: AppRoutes.projects));
                               AppBarFullScreen.currentIndex = 2;
                             },
                           ),

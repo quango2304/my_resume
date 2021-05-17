@@ -25,7 +25,7 @@ class _AppBarDesktopState extends State<AppBarDesktop> {
           Expanded(
               child: GestureDetector(
                 onTap: () {
-                  RoutingHelper().push(RoutingPageType.homeScreenResponsive());
+                  context.vxNav.push(Uri(path: AppRoutes.home));
                   AppBarFullScreen.currentIndex = 0;
                 },
                 child: Row(
@@ -50,8 +50,7 @@ class _AppBarDesktopState extends State<AppBarDesktop> {
                 onTap: () {
                   AppBarFullScreen.currentIndex = i;
                   setState(() {});
-                  RoutingHelper().push(
-                      AppBarResponsive.menuItems.values.toList()[i]);
+                  context.vxNav.push(Uri(path: AppBarResponsive.menuItems.values.toList()[i]));
                 },
                 child: e.s14w300(
                     style: TextStyle(

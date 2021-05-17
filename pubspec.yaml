@@ -36,6 +36,7 @@ dependencies:
   page_transition:
   get:
   url_strategy:
+  velocity_x:
 
 dev_dependencies:
   flutter_test:

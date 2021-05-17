@@ -3,7 +3,6 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:my_resume/constants/app_colors.dart';
 import 'package:my_resume/extensions/extensions.dart';
 import 'package:my_resume/utils/routing_helper.dart';
-
 import 'app_bar_responsive.dart';
 
 class AppBarFullScreen extends StatefulWidget {
@@ -35,7 +34,7 @@ class _AppBarFullScreenState extends State<AppBarFullScreen> {
                       color: Colors.black,
                     ),
                     onTap: () {
-                      RoutingHelper().pop();
+                      context.vxNav.pop();
                     },
                   )
                 ],
@@ -54,7 +53,7 @@ class _AppBarFullScreenState extends State<AppBarFullScreen> {
                       onTap: () {
                         AppBarFullScreen.currentIndex = i;
                         setState(() {});
-                        RoutingHelper().push(AppBarResponsive.menuItems.values.toList()[i]);
+                        context.vxNav.push(Uri(path: AppBarResponsive.menuItems.values.toList()[i]));
                       },
                       child: AppBarResponsive.menuItems.keys.toList()[i].s20w900(
                           style: TextStyle(

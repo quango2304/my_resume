@@ -26,7 +26,7 @@ class HomeScreenDesktop extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Expanded(child: buildResumeProjectsSection()),
-                Expanded(child: buildIntroductionText()),
+                Expanded(child: buildIntroductionText(context)),
               ],
             ),
           ),
@@ -105,7 +105,7 @@ class HomeScreenDesktop extends StatelessWidget {
     );
   }
 
-  Widget buildIntroductionText() {
+  Widget buildIntroductionText(BuildContext context) {
     return Container(
       padding: EdgeInsets.symmetric(horizontal: 28),
       child: Container(
@@ -133,7 +133,7 @@ class HomeScreenDesktop extends StatelessWidget {
                       child: AppButton.solidButton(
                         text: "RESUME",
                         onPress: () {
-                          RoutingHelper().push(RoutingPageType.resumeScreenResponsive());
+                          context.vxNav.push(Uri(path: AppRoutes.resume));
                           AppBarFullScreen.currentIndex = 1;
                         },
                       ),
@@ -143,7 +143,7 @@ class HomeScreenDesktop extends StatelessWidget {
                       child: AppButton.outlineButton(
                         text: "PROJECTS",
                         onPress: () {
-                          RoutingHelper().push(RoutingPageType.projectsScreenResponsive());
+                          context.vxNav.push(Uri(path: AppRoutes.projects));
                           AppBarFullScreen.currentIndex = 2;
                         },
                       ),

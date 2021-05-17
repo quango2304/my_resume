@@ -8,6 +8,15 @@ import 'package:my_resume/widgets/app_bar/app_bar_full_screen.dart';
 import 'package:my_resume/widgets/carousel_images_dialog.dart';
 import 'package:page_transition/page_transition.dart';
 
+class AppRoutes {
+  static const home = '/';
+  static const projects = '/projects';
+  static const resume = '/resume';
+  static const app_bar_full = '/app_bar_full';
+  static const images_view = '/images_view';
+  static const contact = '/contact';
+}
+
 class RoutingPageType {
   late Widget screen;
 

@@ -7,10 +7,10 @@ import '../../utils/routing_helper.dart';
 
 class AppBarResponsive extends StatelessWidget {
   static final menuItems = {
-    'HOME': RoutingPageType.homeScreenResponsive(),
-    'RESUME': RoutingPageType.resumeScreenResponsive(),
-    'PROJECTS': RoutingPageType.projectsScreenResponsive(),
-    'CONTACT': RoutingPageType.contactScreenResponsive()
+    'HOME': AppRoutes.home,
+    'RESUME': AppRoutes.resume,
+    'PROJECTS': AppRoutes.projects,
+    'CONTACT': AppRoutes.contact
   };
   @override
   Widget build(BuildContext context) {
