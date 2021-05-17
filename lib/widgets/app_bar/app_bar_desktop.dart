@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
+import 'package:get/get.dart';
 import 'package:my_resume/constants/app_colors.dart';
 import 'package:my_resume/extensions/extensions.dart';
 import 'package:my_resume/utils/load_cv_json.dart';
@@ -26,7 +27,6 @@ class _AppBarDesktopState extends State<AppBarDesktop> {
               child: GestureDetector(
                 onTap: () {
                   context.vxNav.push(Uri(path: AppRoutes.home));
-                  AppBarFullScreen.currentIndex = 0;
                 },
                 child: Row(
             mainAxisSize: MainAxisSize.min,
@@ -40,28 +40,27 @@ class _AppBarDesktopState extends State<AppBarDesktop> {
           ),
               ).showCursorOnHover),
           Expanded(
-              child: Wrap(
+              child: Obx(() => Wrap(
                 spacing: 15,
-            runSpacing: 10,
-            alignment: WrapAlignment.end,
-            children: [
-              ...AppBarResponsive.menuItems.keys
-                  .mapIndexed((e, i) => GestureDetector(
-                onTap: () {
-                  AppBarFullScreen.currentIndex = i;
-                  setState(() {});
-                  context.vxNav.push(Uri(path: AppBarResponsive.menuItems.values.toList()[i]));
-                },
-                child: e.s14w300(
-                    style: TextStyle(
-                        color: i == AppBarFullScreen.currentIndex
-                            ? AppColors.c2386E8
-                            : Colors.black)),
-              ).showCursorOnHover)
-                  .toList(),
-              30.hoz
-            ],
-          ))
+                runSpacing: 10,
+                alignment: WrapAlignment.end,
+                children: [
+                  ...AppBarResponsive.menuItems.keys
+                      .mapIndexed((e, i) => GestureDetector(
+                    onTap: () {
+                      setState(() {});
+                      context.vxNav.push(Uri(path: AppBarResponsive.menuItems.values.toList()[i]));
+                    },
+                    child: e.s14w300(
+                        style: TextStyle(
+                            color: i == AppBarFullScreen.currentIndex.value
+                                ? AppColors.c2386E8
+                                : Colors.black)),
+                  ).showCursorOnHover)
+                      .toList(),
+                  30.hoz
+                ],
+              )))
         ],
       ),
     );

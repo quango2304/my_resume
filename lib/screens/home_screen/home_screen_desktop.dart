@@ -134,7 +134,6 @@ class HomeScreenDesktop extends StatelessWidget {
                         text: "RESUME",
                         onPress: () {
                           context.vxNav.push(Uri(path: AppRoutes.resume));
-                          AppBarFullScreen.currentIndex = 1;
                         },
                       ),
                     ),
@@ -144,7 +143,6 @@ class HomeScreenDesktop extends StatelessWidget {
                         text: "PROJECTS",
                         onPress: () {
                           context.vxNav.push(Uri(path: AppRoutes.projects));
-                          AppBarFullScreen.currentIndex = 2;
                         },
                       ),
                     ),

@@ -107,7 +107,6 @@ class _HomeScreenMobileState extends State<HomeScreenMobile> {
                             text: "RESUME",
                             onPress: () {
                               context.vxNav.push(Uri(path: AppRoutes.resume));
-                              AppBarFullScreen.currentIndex = 1;
                             },
                           ),
                           20.hoz,
@@ -115,7 +114,6 @@ class _HomeScreenMobileState extends State<HomeScreenMobile> {
                             text: "PROJECTS",
                             onPress: () {
                               context.vxNav.push(Uri(path: AppRoutes.projects));
-                              AppBarFullScreen.currentIndex = 2;
                             },
                           ),
                         ],

@@ -7,7 +7,6 @@ import 'package:responsive_builder/responsive_builder.dart';
 class ProjectsScreenResponsive extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    AppBarFullScreen.currentIndex = 2;
     return ScreenTypeLayout.builder(
       mobile: (_) => ProjectsScreenMobile(),
       tablet: (_) => ProjectsScreenDesktop(),

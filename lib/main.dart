@@ -46,6 +46,29 @@ class _MyAppState extends State<MyApp> {
   );
 
   @override
+  void initState() {
+    super.initState();
+    final routeConfig = _routerDelegate.routeManager;
+    routeConfig.addListener(() {
+      final lastestRoute = routeConfig.uris.last;
+      switch(lastestRoute.path) {
+        case AppRoutes.home:
+          AppBarFullScreen.currentIndex.value = 0;
+          break;
+        case AppRoutes.resume:
+          AppBarFullScreen.currentIndex.value = 1;
+          break;
+        case AppRoutes.projects:
+          AppBarFullScreen.currentIndex.value = 2;
+          break;
+        case AppRoutes.contact:
+          AppBarFullScreen.currentIndex.value = 3;
+          break;
+      }
+    });
+  }
+
+  @override
   Widget build(BuildContext context) {
     return MaterialApp.router(
       theme: ThemeData(

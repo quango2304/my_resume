@@ -7,7 +7,6 @@ import 'package:responsive_builder/responsive_builder.dart';
 class ResumeScreenResponsive extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    AppBarFullScreen.currentIndex = 1;
     return ScreenTypeLayout.builder(
       mobile: (_) => ResumeScreenMobile(),
       tablet: (_) => ResumeScreenDesktop(),
