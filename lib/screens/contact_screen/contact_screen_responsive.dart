@@ -12,7 +12,7 @@ class ContactScreenResponsive extends StatelessWidget {
       mobile: (_) => ContactScreenMobile(),
       tablet: (_) => ContactScreenDesktop(),
       desktop: (_) => ContactScreenDesktop(),
-      watch: (_) => ContactScreenMobile(),˚
+      watch: (_) => ContactScreenMobile(),
     );
   }
 }
