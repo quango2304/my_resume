@@ -22,7 +22,8 @@
         "Docker",
         "OOP",
         "Design Pattern",
-        "Unit Testing"
+        "Unit Testing",
+        "Agile, Scrum"
     ],
     "languages": [
         "English",
@@ -34,7 +35,7 @@
             "job_position": "Mobile Engineer (Flutter)",
             "company_name": "Shopform.sg",
             "company_location": "Singapore",
-            "description": "We use Flutter to develop E-Commercial combine with social media app startup, i work remotely part-time at night with Singapore team. \n \nTechs: Flutter, Bloc, TDD, Getx"
+            "description": "We use Flutter to develop E-Commercial combine with social media app startup, i work remotely part-time at night with Singapore team running Scrum. \n \nTechs: Flutter, Bloc, TDD, Getx"
         },
         {
             "period": "February 2020 — February 2021",
