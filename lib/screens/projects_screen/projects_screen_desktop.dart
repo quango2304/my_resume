@@ -172,7 +172,7 @@ class _ProjectsScreenDesktopState extends State<ProjectsScreenDesktop> {
                     12.ver,
                     Padding(
                       padding: const EdgeInsets.symmetric(horizontal: 40),
-                      child: project.description.s16w400(),
+                      child: project.description.s16w400(selectable: true),
                     ),
                     40.ver,
                   ],

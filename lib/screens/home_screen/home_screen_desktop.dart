@@ -148,7 +148,7 @@ class HomeScreenDesktop extends StatelessWidget {
                   ],
                 ),
                 20.ver,
-                myResume.introduction.s16w400(),
+                myResume.introduction.s16w400(selectable: true),
                 40.ver,
               ],
             ),

@@ -146,7 +146,7 @@ class _ResumeScreenDesktopState extends State<ResumeScreenDesktop> {
                     ),
                     24.hoz,
                     Expanded(
-                      child: experience.description.s16w400(),
+                      child: experience.description.s16w400(selectable: true),
                     )
                   ],
                 ),
