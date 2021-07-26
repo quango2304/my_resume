@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:my_resume/constants/app_colors.dart';
 import 'package:my_resume/extensions/extensions.dart';
@@ -62,38 +63,40 @@ class HomeScreenDesktop extends StatelessWidget {
                 child: Container(
                   color: AppColors.cF5ECE6,
                   width: double.maxFinite,
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    mainAxisSize: MainAxisSize.min,
-                    children: [
-                      20.ver,
-                      UserAvatar(
-                        size: 200,
-                      ),
-                      16.ver,
-                      myResume.name.s20w800(),
-                      8.ver,
-                      Container(
-                        width: 70,
-                        height: 2,
-                        color: AppColors.c2386E8,
-                      ),
-                      24.ver,
-                      Padding(
-                        padding: const EdgeInsets.symmetric(horizontal: 16),
-                        child: myResume.title.s15w400(style: TextStyle(
-                          letterSpacing: 5
-                        )),
-                      ),
-                      36.ver,
-                      Container(
-                        color: Colors.white,
-                        width: double.maxFinite,
-                        height: 40,
-                        child: Center(child: SocialsWidget()),
-                      ),
-                      10.ver,
-                    ],
+                  child: SingleChildScrollView(
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      mainAxisSize: MainAxisSize.min,
+                      children: [
+                        20.ver,
+                        UserAvatar(
+                          size: 200,
+                        ),
+                        16.ver,
+                        myResume.name.s20w800(),
+                        8.ver,
+                        Container(
+                          width: 70,
+                          height: 2,
+                          color: AppColors.c2386E8,
+                        ),
+                        24.ver,
+                        Padding(
+                          padding: const EdgeInsets.symmetric(horizontal: 16),
+                          child: myResume.title.s15w400(style: TextStyle(
+                            letterSpacing: 5
+                          )),
+                        ),
+                        36.ver,
+                        Container(
+                          color: Colors.white,
+                          width: double.maxFinite,
+                          height: 40,
+                          child: Center(child: SocialsWidget()),
+                        ),
+                        10.ver,
+                      ],
+                    ),
                   ),
                 ),
               ),
@@ -112,45 +115,47 @@ class HomeScreenDesktop extends StatelessWidget {
           alignment: Alignment.centerLeft,
           child: SizedBox(
             width: 400,
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              mainAxisAlignment: MainAxisAlignment.center,
-              mainAxisSize: MainAxisSize.min,
-              children: [
-                10.ver,
-                'Hello'.s45w900(),
-                20.ver,
-                "Here's who I am & what I do".s20w600(),
-                20.ver,
-                Wrap(
-                  alignment: WrapAlignment.center,
-                  runSpacing: 10,
-                  spacing: 20,
-                  children: [
-                    SizedBox(
-                      width: 100,
-                      child: AppButton.solidButton(
-                        text: "RESUME",
-                        onPress: () {
-                          context.vxNav.push(Uri(path: AppRoutes.resume));
-                        },
+            child: SingleChildScrollView(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                mainAxisAlignment: MainAxisAlignment.center,
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  10.ver,
+                  'Hello'.s45w900(),
+                  20.ver,
+                  "Here's who I am & what I do".s20w600(),
+                  20.ver,
+                  Wrap(
+                    alignment: WrapAlignment.center,
+                    runSpacing: 10,
+                    spacing: 20,
+                    children: [
+                      SizedBox(
+                        width: 100,
+                        child: AppButton.solidButton(
+                          text: "RESUME",
+                          onPress: () {
+                            context.vxNav.push(Uri(path: AppRoutes.resume));
+                          },
+                        ),
                       ),
-                    ),
-                    SizedBox(
-                      width: 100,
-                      child: AppButton.outlineButton(
-                        text: "PROJECTS",
-                        onPress: () {
-                          context.vxNav.push(Uri(path: AppRoutes.projects));
-                        },
+                      SizedBox(
+                        width: 100,
+                        child: AppButton.outlineButton(
+                          text: "PROJECTS",
+                          onPress: () {
+                            context.vxNav.push(Uri(path: AppRoutes.projects));
+                          },
+                        ),
                       ),
-                    ),
-                  ],
-                ),
-                20.ver,
-                myResume.introduction.s16w400(selectable: true),
-                40.ver,
-              ],
+                    ],
+                  ),
+                  20.ver,
+                  myResume.introduction.s16w400(selectable: true),
+                  40.ver,
+                ],
+              ),
             ),
           ),
         ),

@@ -28,20 +28,22 @@ class _ContactScreenDesktopState extends State<ContactScreenDesktop> {
           AppBarResponsive(),
           ...buildHeader(),
           40.ver,
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 20),
-            child: ShadowButton.normal(
-                child: Container(
-                  color: Colors.white,
-                  width: double.maxFinite,
-                  constraints: BoxConstraints(
-                      maxWidth: 600
-                  ),
-                  padding: EdgeInsets.only(top: 40, left: 20, right: 20, bottom: 40),
-                  child: buildForm(),
-                )),
+          Expanded(
+            child: Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 20),
+              child: ShadowButton.normal(
+                  child: Container(
+                    color: Colors.white,
+                    width: double.maxFinite,
+                    constraints: BoxConstraints(
+                        maxWidth: 600
+                    ),
+                    padding: EdgeInsets.only(top: 40, left: 20, right: 20, bottom: 40),
+                    child: buildForm(),
+                  )),
+            ),
           ),
-          Spacer(),
+          40.ver,
           FooterResponsive()
         ],
       ),
@@ -72,17 +74,19 @@ class _ContactScreenDesktopState extends State<ContactScreenDesktop> {
   Widget buildForm() {
     return Form(
       key: formKey,
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          buildUsernameField(),
-          40.ver,
-          "Message".s14w500(),
-          4.ver,
-          buildMessageField(),
-          12.ver,
-          Center(child: _buildSubmitButton()),
-        ],
+      child: SingleChildScrollView(
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            buildUsernameField(),
+            40.ver,
+            "Message".s14w500(),
+            4.ver,
+            buildMessageField(),
+            12.ver,
+            Center(child: _buildSubmitButton()),
+          ],
+        ),
       ),
     );
   }

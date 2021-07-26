@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:my_resume/utils/load_cv_json.dart';
 import 'package:my_resume/utils/routing_helper.dart';
 import 'package:url_strategy/url_strategy.dart';
@@ -10,6 +11,7 @@ void main() async {
   await loadCV();
   runApp(MyApp());
 }
+
 class MyApp extends StatefulWidget {
   @override
   State<StatefulWidget> createState() => _MyAppState();
@@ -26,8 +28,11 @@ class _MyAppState extends State<MyApp> {
   Widget build(BuildContext context) {
     return MaterialApp.router(
       theme: ThemeData(
-        primarySwatch: Colors.orange,
-      ),
+          primarySwatch: Colors.orange,
+          textTheme: GoogleFonts.poppinsTextTheme(
+            Theme.of(context).textTheme,
+          )),
+      title: "Hello, I'm Quan",
       routerDelegate: RoutingHelper().routerDelegate,
       routeInformationParser: VxInformationParser(),
     );
