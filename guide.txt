@@ -1,7 +1,7 @@
 deploy firebase host
 firebase init
 build/web
-flutter build web
+flutter build web --release
 firebase deploy
 
 
